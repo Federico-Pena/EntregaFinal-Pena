@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,8 @@
     <!-- ////////SWEET ALERT////////  -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- ////////ESTILOS PERSONALIZADOS////////  -->
+    <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="../css/agregarProducto.css">
     <link rel="stylesheet" href="../css/index.css">
     <title>La Casa de la Alfombra</title>
 </head>
@@ -28,7 +30,7 @@
             </div>
         </header>
 
-        <form id="formulario" class="form animate__animated animate__backInDown" action="">
+        <form id="formulario" class="form animate__animated animate__backInDown">
             <h1>Agregar Producto</h1>
             <label class="labelInput" for="nombre">Nombre <input id="nombre" required class="inputForm" type="text"
                     placeholder="Alfombra Fantasia"></label>
@@ -40,7 +42,10 @@
                     class="inputForm" type="text" placeholder=" Material, Color"></label>
             <label class="labelInput" for="foto" id="labelFIle">Agregar foto <input id="foto" class="inputFile"
                     type="file" accept="image/*"></label>
-            <img id="preview"></img>
+            <div class="preview">
+                <img id="preview" src='https://placehold.co/200/ffffff1e/000?text=Carga una imagen'></img>
+            </div>
+
             <button class="btnForm" type="submit">Agregar</button>
         </form>
 
@@ -49,4 +54,5 @@
 
     <script src="../js/agregarProducto.js" type="module"></script>
 </body>
+
 </html>

@@ -1,40 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Fake Web de Tienda De Alfombras" />
+		<link
+			rel="shortcut icon"
+			href="./assets/alfombra-roja-favicon.png"
+			type="image/x-icon" />
+		<!-- ////////FUENTE////////  -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Foldit&display=swap"
+			rel="stylesheet" />
+		<!-- ////////ANIMACIONES////////  -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<title>La Casa de la Alfombra</title>
+		<link rel="stylesheet" href="./css/landing.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/alfombra-roja-favicon.png" type="image/x-icon">
-    <!-- ////////FUENTE////////  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Foldit&display=swap" rel="stylesheet">
-    <!-- ////////ANIMACIONES////////  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <title>La Casa de la Alfombra</title>
-    <link rel="stylesheet" href="./css/index.css">
-</head>
-
-<body id="bodyLanding">
-    <div class="containerLanding">
-        <div class="titulos animate__animated hidden">
-            <h1>La Casa de la Alfombra</h1>
-            <h2>Confort y elegancia para el hogar</h2>
-        </div>
-        <div class="carrusel animate__animated hidden">
-            <img src="./assets/productos/Alfombra África.jpg" alt="Alfombra África">
-            <img src="./assets/productos/Alfombra-alba.jpg" alt="Alfombra-alba">
-            <img src="./assets/productos/alfombra-algodon-gris.jpg" alt="alfombra-algodon-gris">
-            <img src="./assets/productos/alfombra-tela-blanco-pompone-90cm.jpg" alt="alfombra-tela-blanco-pompone">
-            <img src="./assets/productos/caminero-yute.webp" alt="caminero-yute">
-            <img src="./assets/productos/felpudo-coco.jpg" alt="felpudo-coco">
-            <img src="./assets/productos/felpudo-fibra-coco-natural-beige-liso.jpg" alt="felpudo-fibra-coco">
-            <img src="./assets/productos/felpudo-goma-negro-hierro.jpg" alt="felpudo-goma-negro">
-        </div>
-        <a class="btnIra animate__animated hidden" href="./pages/productos.html">Ver Productos</a>
-    </div>
-    <script src="./js/landing.js"></script>
-</body>
-
+	<body id="bodyLanding">
+		<div class="containerLanding">
+			<div class="titulos animate__animated hidden">
+				<h1>La Casa de la Alfombra</h1>
+				<h2>Confort y elegancia para el hogar</h2>
+			</div>
+			<div class="carrusel animate__animated hidden">
+				<img
+					title="Alfombra África"
+					src="./assets/productos/Alfombra África.jpg"
+					alt="Alfombra África" />
+				<img
+					title="Alfombra alba"
+					src="./assets/productos/Alfombra-alba.jpg"
+					alt="Alfombra alba" />
+				<img
+					title="alfombra algodon gris"
+					src="./assets/productos/alfombra-algodon-gris.jpg"
+					alt="alfombra algodon gris" />
+				<img
+					title="alfombra tela blanco pompone"
+					src="./assets/productos/alfombra-tela-blanco-pompone-90cm.jpg"
+					alt="alfombra tela blanco pompone" />
+				<img src="./assets/productos/caminero-yute.webp" alt="caminero-yute" />
+				<img src="./assets/productos/felpudo-coco.jpg" alt="felpudo-coco" />
+				<img
+					title="felpudo fibra coco"
+					src="./assets/productos/felpudo-fibra-coco-natural-beige-liso.jpg"
+					alt="felpudo fibra coco" />
+				<img
+					title="felpudo goma negro"
+					src="./assets/productos/felpudo-goma-negro-hierro.jpg"
+					alt="felpudo goma negro" />
+			</div>
+			<a
+				title="Ver Productos"
+				class="btnIra animate__animated hidden"
+				href="./pages/productos.html"
+				>Ver Productos</a
+			>
+		</div>
+		<script src="./js/landing.js" type="module"></script>
+	</body>
 </html>

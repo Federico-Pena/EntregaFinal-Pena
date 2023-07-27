@@ -1,696 +1,216 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-
 #bodyComprarProductos,
 #bodyAgregarProductos {
-  background-image: url("../assets/backGroundBody.jpg");
-  background-size: 150%;
-  background-attachment: fixed;
-  background-position: center;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  height: auto;
-  font-family: "Rubik", sans-serif;
+	background-image: url('../assets/backGroundBody.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	height: auto;
+	font-family: 'Rubik', sans-serif;
 }
-
+::-webkit-scrollbar {
+	display: none;
+}
 .container {
-  width: 100%;
-  height: 100%;
-  position: relative;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	flex: auto;
 }
 .container a {
-  text-align: center;
-}
-/* landing */
-#bodyLanding {
-  background: url("../assets/backGroundBody.jpg");
-  background-size: 150%;
-  background-attachment: fixed;
-  background-position: center;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100vw;
-  min-height: 100vh;
-  height: auto;
-  font-family: "Rubik", sans-serif;
-  backdrop-filter: grayScale(100%);
-}
-
-.containerLanding {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.containerLanding::after {
-  content: "";
-  background-color: #000000c2;
-  top: -70%;
-  width: 150%;
-  height: 100%;
-  border-radius: 100%;
-  position: absolute;
-  z-index: -1;
-}
-.btnIra {
-  background-color: rgba(49, 158, 35, 0.699);
-  border-radius: 0.5rem;
-  width: 100%;
-  max-width: 30rem;
-  padding: 1rem 0rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  color: #ffffff;
-}
-.btnIra:hover {
-  box-shadow: inset 0px 0px 5px 1px black;
-  transform: scale(0.98);
-  transition: 0.3s ease;
-}
-.titulos {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.titulos h1,
-h2 {
-  width: 100%;
-  text-align: center;
-  color: #ffffff;
-  padding: 1rem;
-}
-.titulos h1 {
-  letter-spacing: 3px;
-}
-.titulos h2 {
-  font-family: "Cedarville Cursive", cursive;
-}
-.carrusel {
-  border-radius: 0.5rem;
-  width: 100%;
-  max-width: 50rem;
-  max-height: 40rem;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  z-index: 2;
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-.carrusel img {
-  width: 100%;
-  height: 100%;
-}
-.carrusel button {
-  background-color: rgba(0, 0, 0, 0.226);
-  border-radius: 0.5rem;
-  width: 10%;
-  height: 20%;
-  top: 50%;
-  position: absolute;
-  transform: translate(0, -50%);
-  font-weight: bold;
-}
-/* INDEX */
-
-.carrito {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  min-height: 100vh;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(48, 48, 48);
-  border: 1px solid white;
-  border-radius: 0.5rem;
-  gap: 1rem;
-  padding: 0.5rem;
-}
-.carrito img {
-  border-radius: 0.5rem;
-}
-.carrito h2 {
-  border-bottom: 1px solid white;
-}
-.carrito h3 {
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid white;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.divCarrito {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-  gap: 1rem;
-  align-items: center;
-  overflow: auto;
-}
-#cerrarCarrito {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  top: 2%;
-  right: 3%;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.418);
-  border-radius: 50%;
-  z-index: 4;
-  transition: all 0.3s ease;
-}
-
-#cerrarCarrito img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-#cerrarCarrito:hover {
-  transform: scale(0.9);
-}
-.total {
-  color: white;
-  width: 100%;
-  text-align: center;
-}
-.comprar {
-  width: 50%;
-  height: 3rem;
-  border-radius: 0.5rem;
-  background-color: rgba(21, 255, 0, 0.637);
-  border-color: #777777;
-  font-weight: bolder;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.3s ease;
-}
-.vaciarCarrito {
-  width: 50%;
-  height: 3rem;
-  border-radius: 0.5rem;
-  background-color: rgba(255, 0, 0, 0.637);
-  border-color: #777777;
-  font-weight: bolder;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.3s ease;
-}
-.vaciarCarrito:hover {
-  border: inset 2px #777777;
-  transform: scale(0.98);
-}
-.prodCarrito {
-  display: flex;
-  width: 100%;
-  max-width: 700px;
-  gap: 0.5rem;
-  align-items: center;
-  position: relative;
-  border: 1px solid white;
-  border-radius: 0.5rem;
-}
-.cantidad {
-  width: fit-content;
-  text-align: center;
-}
-.prodCarrito img {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 0.5rem;
-  object-fit: cover;
-}
-.prodCarrito input {
-  width: 3rem;
-  border-radius: 0.5rem;
-}
-.prodCarrito button {
-  width: 50%;
-  height: 2rem;
-  border-radius: 0.5rem;
-  background-image: url("../assets/icons/trash.svg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(255, 0, 0, 0.637);
-  border-color: #777777;
-}
-.prodCarrito .restar {
-  text-align: end;
-}
-.prodCarrito .sumar {
-  text-align: start;
-}
-.prodCarrito .restar,
-.sumar {
-  font-size: 1.5rem;
-
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: bolder;
-}
-.prodCarrito .sumar:hover {
-  text-shadow: 1px 1px 10px white;
-}
-.prodCarrito .restar:hover {
-  text-shadow: 1px 1px 10px white;
-}
-.numTarjeta {
-  width: 20%;
-  margin: 0;
-  padding: 0;
-}
-
-#swal2-html-container{
- padding: 0;
- margin: 1rem 0;
-}
-#num1,#num2,#num3,#num4{
-  -moz-appearance: textfield;
-  text-align: center;
-
-}
-
-#num1::-webkit-inner-spin-button,
-#num1::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#num2::-webkit-inner-spin-button,
-#num2::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#num3::-webkit-inner-spin-button,
-#num3::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#num4::-webkit-inner-spin-button,
-#num4::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	text-align: center;
 }
 
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
 }
 header .container {
-  display: flex;
-  justify-content: space-around;
-  padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.116);
-  backdrop-filter: blur(10px);
+	display: flex;
+	justify-content: space-around;
+	padding: 0.5rem;
+	background-color: #ffffff1e;
+	backdrop-filter: blur(10px);
 }
 .nameUserNav {
-  width: 30%;
-  height: 100%;
-  margin: auto;
-  letter-spacing: 0.2rem;
-  cursor: pointer;
-  transition: all .5s ease;
+	width: 30%;
+	height: 100%;
+	margin: auto;
+	letter-spacing: 0.2rem;
+	cursor: pointer;
+	transition: all 0.5s ease;
 }
-.nameUserNav:hover{
-  text-shadow: 1px 1px 20px #000000;
-  letter-spacing: 6px;
+.nameUserNav:hover {
+	text-shadow: 1px 1px 20px #000000;
+	letter-spacing: 6px;
 }
-.eliminarCuenta{
-  position: absolute;
-  bottom: 0;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.116);
-  width: fit-content;
-  border-radius: .3rem;
-  padding: .1rem .5rem;
-  transition: all .3s ease;
+.eliminarCuenta {
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.116);
+	width: fit-content;
+	border-radius: 0.3rem;
+	padding: 0.1rem 0.5rem;
+	transition: all 0.3s ease;
 }
-.eliminarCuenta:hover{
-  background-color: rgba(255, 0, 0, 0.795);
-  transform: scale(.98);
+.eliminarCuenta:hover {
+	background-color: rgba(255, 0, 0, 0.795);
+	transform: scale(0.98);
 }
 
 .swal2-input {
-  margin: 0.5rem auto;
+	margin: 0.5rem auto;
 }
 header .container button {
-  width: 30%;
-  height: 100%;
-  margin: auto;
-  background-color: transparent;
-  border: none;
-  padding: 0.5rem 0;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  color: #ffffff;
-  transition: all.3s linear;
-  letter-spacing: 0.2rem;
-  word-wrap: break-word;
+	width: 30%;
+	height: 100%;
+	margin: auto;
+	background-color: transparent;
+	border: none;
+	padding: 0.5rem 0;
+	border-radius: 0.5rem;
+	font-weight: bold;
+	color: #ffffff;
+	transition: all.3s linear;
+	letter-spacing: 0.2rem;
+	word-wrap: break-word;
 }
 
 header .container a {
-  text-decoration: none;
-  width: 30%;
-  height: 100%;
-  font-weight: bold;
-  color: #ffffff;
-  transition: all.3s linear;
+	text-decoration: none;
+	width: 30%;
+	height: 100%;
+	font-weight: bold;
+	color: #ffffff;
+	transition: all.3s linear;
 }
 #btnCarrito {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
 #btnCarrito img {
-  width: 1.5rem;
+	width: 1.5rem;
 }
 #btnCarrito p {
-  width: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: inset 1px 1px 10px 1px rgba(0, 0, 0, 0.459);
+	width: 1.5rem;
+	border-radius: 0.5rem;
+	box-shadow: inset 1px 1px 10px 1px rgba(0, 0, 0, 0.459);
 }
 header .container button:hover {
-  background-color: rgba(60, 247, 43, 0.404);
-  outline: 1px solid #ffffff;
+	background-color: rgba(60, 247, 43, 0.404);
+	outline: 1px solid #ffffff;
 }
-
-.buscar {
-  width: 100%;
-  margin-top: 4rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: nowrap;
-}
-.buscar label {
-  text-transform: uppercase;
-  letter-spacing: 0.7rem;
-  text-shadow: 0px 0px 4px rgb(5, 5, 5);
-  font-weight: bold;
-}
-.buscar input {
-  width: 100%;
-  max-width: 800px;
-  height: 2rem;
-  border-radius: 0.5rem;
-  outline: none;
-  border: none;
-  padding: 0.5rem;
-  transition: all 0.2s ease;
-  font-weight: 550;
-}
-.buscar input:hover {
-  box-shadow: 1px 1px 5px 1px rgba(255, 255, 255, 0.616);
-}
-
-.productos {
-  width: 100%;
-  max-width: 1200px;
-  margin: 1rem auto;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.cardProducto {
-  width: 100%;
-  max-width: 18rem;
-  max-height: 500px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.116);
-  backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.562);
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  overflow: hidden;
-  transition: all.3s linear;
-  position: relative;
-}
-.cardProducto img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-.cardProducto:hover {
-  transform: scale(1.05);
-}
-
-.cardProducto p,
-small,
-strong {
-  width: 100%;
-  text-align: center;
-}
-.hidden {
-  display: none;
-}
-.btnBorrar {
-  width: 1.5rem;
-  height: 1.5rem;
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  background-image: url("../assets/icons/trash.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 0.5rem;
-  background-color: rgba(255, 0, 0, 0.699);
-}
-
-.btnBorrar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.btnAgregar {
-  width: 60%;
-  height: 100%;
-  margin: auto;
-  background-color: rgba(60, 247, 43, 0.404);
-  border: none;
-  padding: 0.5rem 0;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  transition: all.3s linear;
-}
-.btnAgregar:hover {
-  background-color: rgb(60, 247, 43);
-  border: 1px solid #ffffff;
-}
-
-/* AGREGAR PRODUCTO */
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  width: 50%;
-  min-width: 300px;
-  max-width: 800px;
-  height: auto;
-  margin: 4rem auto;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.562);
-  background-color: rgba(255, 255, 255, 0.116);
-  backdrop-filter: blur(10px);
-}
-.form h1 {
-  text-align: center;
-}
-.labelInput {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  position: relative;
-}
-
-.inputForm {
-  height: 2rem;
-  border-radius: 0.5rem;
-  outline: none;
-  border: none;
-  padding: 0.5rem;
-  transition: all 0.2s linear;
-  font-weight: 550;
-}
-
-.inputForm:hover {
-  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.616);
-  transform: scale(1, 1.05);
-}
-
-.inputFile {
-  opacity: 0;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-#preview {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-
-#labelFIle::after {
-  content: "Cargar Archivo...";
-  padding: 0.5rem;
-  text-align: center;
-  border-radius: 0.5rem;
-  background-color: #ffffff;
-  color: #303030;
-  cursor: pointer;
-}
-.btnForm {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(60, 247, 43, 0.404);
-  border: none;
-  padding: 1rem 0;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  transition: all.3s linear;
-}
-.btnForm:hover {
-  background-color: rgb(60, 247, 43);
-  transform: scale(0.98);
-}
-
-/* AGREGAR PRODUCTO */
 
 /*CHISTE*/
 .chistesContainer {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-color: #fab22e;
-  color: black;
-  transition: all 0.5s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: #fab22e;
+	color: black;
+	transition: all 0.5s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 3;
+	display: none;
 }
 .btnCerrarFrase {
-  position: fixed;
-  right: 8%;
-  top: 5%;
-  z-index: 2;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  border: none;
-  background-color: rgb(0, 119, 255);
-  font-size: large;
-  font-weight: bolder;
-  color: white;
+	position: fixed;
+	right: 8%;
+	top: 5%;
+	z-index: 2;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	border: none;
+	background-color: rgb(0, 119, 255);
+	font-size: large;
+	font-weight: bolder;
+	color: white;
 }
 .chisteCard {
-  position: relative;
-  border: 1px solid white;
-  max-width: 500px;
-  display: flex;
-  gap: 1rem;
-  padding: 5rem 1rem;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  box-shadow: 0px 20px 45px black;
-  background-color: #000000;
-  color: white;
-  overflow: auto;
+	position: relative;
+	border: 1px solid white;
+	max-width: 500px;
+	display: flex;
+	gap: 1rem;
+	padding: 5rem 1rem;
+	flex-direction: column;
+	text-align: center;
+	justify-content: space-around;
+	border-radius: 0.5rem;
+	box-shadow: 0px 20px 45px black;
+	background-color: #000000;
+	color: white;
+	overflow: hidden;
 }
 
 .chisteCard p {
-  height: 100%;
-  width: 100%;
-  padding: 1rem;
-  letter-spacing: 3px;
-  font-family: italic;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+	height: 100%;
+	width: 100%;
+	padding: 1rem;
+	letter-spacing: 3px;
+	font-family: italic;
+	font-size: 1.2rem;
+	transition: all 0.3s ease;
 }
 
 .chisteCard button {
-  width: 90%;
-  height: 2rem;
-  background-color: rgb(0, 119, 255);
-  color: white;
-  border: none;
-  margin: auto;
-  border-radius: 0.5rem;
+	width: 90%;
+	height: 2rem;
+	background-color: rgb(0, 119, 255);
+	color: white;
+	border: none;
+	margin: auto;
+	border-radius: 0.5rem;
 }
 
 .btnFrases {
-  position: fixed;
-  right: 8%;
-  top: 80%;
-  z-index: 2;
-  border-radius: 5rem;
-  padding: 1rem 1rem;
-  border: none;
-  background-color: rgba(0, 128, 0, 0.692);
-  box-shadow: 0px 0px 5px 2px rgb(5, 5, 5), 0px 0px 45px 2px green,
-    0px 0px 45px 2px green;
-  color: rgb(3, 3, 3);
-  font-size: 1.2rem;
-  font-weight: bolder;
-  transition: 0.3s all ease;
-  cursor: pointer;
-  animation: btnChistes 3s infinite ease-in-out;
+	position: fixed;
+	right: 8%;
+	top: 80%;
+	z-index: 2;
+	border-radius: 5rem;
+	padding: 1rem 1rem;
+	border: none;
+	background-color: rgba(0, 128, 0, 0.692);
+	box-shadow: 0px 0px 5px 2px rgb(5, 5, 5), 0px 0px 45px 2px green,
+		0px 0px 45px 2px green;
+	color: rgb(3, 3, 3);
+	font-size: 1.2rem;
+	font-weight: bolder;
+	transition: 0.3s all ease;
+	cursor: pointer;
+	animation: btnChistes 3s infinite ease-in-out;
 }
 
 @keyframes btnChistes {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(.7);
-    border-radius: 1rem;
-  }
-  100% {
-    transform: scale(1);
-  }
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.7);
+		border-radius: 1rem;
+	}
+	100% {
+		transform: scale(1);
+	}
 }

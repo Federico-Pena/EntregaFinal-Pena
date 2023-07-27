@@ -1,137 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="shortcut icon"
+			href="../assets/alfombra-roja-favicon.png"
+			type="image/x-icon" />
+		<!-- ////////FUENTE//////// -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap"
+			rel="stylesheet" />
+		<!-- ////////ANIMACIONES////////  -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<!-- ////////SWEET ALERT////////  -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/alfombra-roja-favicon.png" type="image/x-icon">
-    <!-- ////////FUENTE//////// -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- ////////ANIMACIONES////////  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- ////////SWEET ALERT////////  -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<!-- ////////ESTILOS PERSONALIZADOS////////  -->
+		<link rel="stylesheet" href="../css/productos.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<title>La Casa de la Alfombra</title>
+	</head>
 
-    <!-- ////////ESTILOS PERSONALIZADOS////////  -->
-    <link rel="stylesheet" href="../css/index.css">
-    <title>La Casa de la Alfombra</title>
-</head>
-
-<body id="bodyComprarProductos">
-    <div class="carrito hidden animate__animated animate__backInLeft">
-        <button id="cerrarCarrito"><img src="../assets/icons/cerrar.svg" alt="Boton cerrar"></button>
-        <h2>CARRITO DE COMPRAS</h2>
-        <h3 class="nombreCarrito"></h3>
-        <div class="divCarrito animate__animated">
-        </div>
-        <strong class="total">$</strong>
-        <button class="comprar">Comprar</button>
-        <button class="vaciarCarrito">Vaciar carrito</button>
-    </div>
-    <div class="container">
-        <header class="header animate__animated animate__backInDown">
-            <div class="container">
-                <button class="iraReg">Registrarse</button>
-                <button id="login">INICIAR SESION</button>
-                <button class="logout hidden animate__animated">Cerrar sesion</button>
-                <strong class="hidden nameUserNav animate__animated"></strong>
-                <small class="hidden eliminarCuenta animate__animated" >Eliminar Cuenta</small>
-                <button class="hidden animate__animated" id="agregar"><a
-                        href="./agregarProducto.html">AGREGAR</a></button>
-                <button id="btnCarrito">
-                    <p class="carritoLength animate__animated"></p>
-                    <img class="animate__animated" src="../assets/icons/carrito.svg" alt="Icono carrito de compras">
-                </button>
-            </div>
-        </header>
-        <main>
-            <div class="chistesContainer animate__animated">
-                <button class="btnCerrarFrase">X</button>
-                <div class="chisteCard ">
-                    <p class="autor animate__animated"></p>
-                    <p class="frase animate__animated"></p>
-                    <button class="btnVerOtraFrase">Ver otra</button>
-                </div>
-            </div>
-            <button class="btnFrases">Click</button>
-            <div class="buscar animate__animated animate__backInDown">
-                <label for="buscar">Buscar</label>
-                <input id="buscar" type="text" placeholder="Nombre-medidas-composicion">
-            </div>
-            <div class="productos animate__animated animate__backInDown" id="divProductos">
-                <div class="cardProducto">
-                    <img src="../assets/productos/caminero-yute.webp" alt="">
-                    <p>Caminero de yute</p>
-                    <small>Caminero de yute</small>
-                    <small>100×150 cm</small>
-                    <strong>$ 950</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/Alfombra África.jpg" alt="">
-                    <p>Alfombra África</p>
-                    <small>100% polipropileno – Base: 100% yute</small>
-                    <small>100×150 cm</small>
-                    <strong>$ 652</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/Alfombra-alba.jpg" alt="">
-                    <p>Alfombra Alba</p>
-                    <small>100% polipropileno – Base: 100% yute</small>
-                    <small>60×90 cm</small>
-                    <strong>$ 300</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/alfombra-algodon-gris.jpg" alt="">
-                    <p>Alfombra Algodon Gris</p>
-                    <small>100% Algodon</small>
-                    <small>160×230 cm</small>
-                    <strong>$ 5890</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/alfombra-tela-blanco-pompone-90cm.jpg" alt="">
-                    <p>Alfombra Tela Blanca</p>
-                    <small>Tela</small>
-                    <small>90x90cm</small>
-                    <strong>$ 1830</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/felpudo-coco.jpg" alt="">
-                    <p>Alfombra de coco</p>
-                    <small>Coco</small>
-                    <small>45x75cm</small>
-                    <strong>$ 390</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/felpudo-fibra-coco-natural-beige-liso.jpg" alt="">
-                    <p>Felpudo de coco Beige</p>
-                    <small>Coco</small>
-                    <small>40x70cm</small>
-                    <strong>$ 420</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-                <div class="cardProducto">
-                    <img src="../assets/productos/felpudo-goma-negro-hierro.jpg" alt="">
-                    <p>Felpudo de Goma Negro</p>
-                    <small>Goma / Caucho</small>
-                    <small>45x75cm</small>
-                    <strong>$ 605</strong>
-                    <button class="btnAgregar">Agregar al Carrito</button>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="../js/productos.js" type="module"></script>
-    <script src="../js/apiFrases.js"></script>
-</body>
-
+	<body id="bodyComprarProductos">
+		<div class="carrito hidden animate__animated animate__backInLeft">
+			<button id="cerrarCarrito">
+				<img
+					title="cerrar.svg"
+					src="../assets/icons/cerrar.svg"
+					alt="Boton cerrar" />
+			</button>
+			<h2>CARRITO DE COMPRAS</h2>
+			<h3 class="nombreCarrito"></h3>
+			<div class="divCarrito animate__animated"></div>
+			<strong class="total">$</strong>
+			<button class="comprar">Comprar</button>
+			<button class="vaciarCarrito">Vaciar carrito</button>
+		</div>
+		<div class="container">
+			<header class="header animate__animated animate__backInDown">
+				<div class="container">
+					<button class="iraReg">Registrarse</button>
+					<button id="login">INICIAR SESION</button>
+					<button class="logout hidden animate__animated">Cerrar sesion</button>
+					<strong class="hidden nameUserNav animate__animated"></strong>
+					<small class="hidden eliminarCuenta animate__animated"
+						>Eliminar Cuenta</small
+					>
+					<button class="hidden animate__animated" id="agregar">
+						<a href="./agregarProducto.html">AGREGAR</a>
+					</button>
+					<button id="btnCarrito">
+						<p class="carritoLength animate__animated"></p>
+						<img
+							class="animate__animated"
+							src="../assets/icons/carrito.svg"
+							alt="Icono carrito de compras" />
+					</button>
+				</div>
+			</header>
+			<main>
+				<div class="chistesContainer animate__animated">
+					<button class="btnCerrarFrase">X</button>
+					<div class="chisteCard">
+						<p class="autor animate__animated"></p>
+						<p class="frase animate__animated"></p>
+						<button class="btnVerOtraFrase">Ver otra</button>
+					</div>
+				</div>
+				<button class="btnFrases">Click</button>
+				<div class="buscar animate__animated animate__backInDown">
+					<label for="buscar">Buscar</label>
+					<input
+						id="buscar"
+						type="text"
+						placeholder="Nombre-medidas-composicion" />
+				</div>
+				<div
+					class="productos animate__animated animate__backInDown"
+					id="divProductos">
+					<div class="cardProducto">
+						<img
+							title="Caminero de yute"
+							src="../assets/productos/caminero-yute.webp"
+							alt="Caminero de yute" />
+						<p>Caminero de yute</p>
+						<small>Caminero de yute</small>
+						<small>100×150 cm</small>
+						<strong>$ 950</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Alfombra África"
+							src="../assets/productos/Alfombra África.jpg"
+							alt="Alfombra África" />
+						<p>Alfombra África</p>
+						<small>100% polipropileno – Base: 100% yute</small>
+						<small>100×150 cm</small>
+						<strong>$ 652</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Alfombra alba"
+							src="../assets/productos/Alfombra-alba.jpg"
+							alt="Alfombra alba" />
+						<p>Alfombra Alba</p>
+						<small>100% polipropileno – Base: 100% yute</small>
+						<small>60×90 cm</small>
+						<strong>$ 300</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Alfombra Algodon Gris"
+							src="../assets/productos/alfombra-algodon-gris.jpg"
+							alt="Alfombra Algodon Gris" />
+						<p>Alfombra Algodon Gris</p>
+						<small>100% Algodon</small>
+						<small>160×230 cm</small>
+						<strong>$ 5890</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Alfombra Tela Blanca"
+							src="../assets/productos/alfombra-tela-blanco-pompone-90cm.jpg"
+							alt="Alfombra Tela Blanca" />
+						<p>Alfombra Tela Blanca</p>
+						<small>Tela</small>
+						<small>90x90cm</small>
+						<strong>$ 1830</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Alfombra de coco"
+							src="../assets/productos/felpudo-coco.jpg"
+							alt="Alfombra de coco" />
+						<p>Alfombra de coco</p>
+						<small>Coco</small>
+						<small>45x75cm</small>
+						<strong>$ 390</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Felpudo de coco Beige"
+							src="../assets/productos/felpudo-fibra-coco-natural-beige-liso.jpg"
+							alt="Felpudo de coco Beige" />
+						<p>Felpudo de coco Beige</p>
+						<small>Coco</small>
+						<small>40x70cm</small>
+						<strong>$ 420</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+					<div class="cardProducto">
+						<img
+							title="Felpudo de Goma Negro"
+							src="../assets/productos/felpudo-goma-negro-hierro.jpg"
+							alt="Felpudo de Goma Negro" />
+						<p>Felpudo de Goma Negro</p>
+						<small>Goma / Caucho</small>
+						<small>45x75cm</small>
+						<strong>$ 605</strong>
+						<button title="Agregar al Carrito" class="btnAgregar">
+							Agregar al Carrito
+						</button>
+					</div>
+				</div>
+			</main>
+		</div>
+		<!-- bcryptJS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+		<script src="../js/productos.js" type="module"></script>
+		<script src="../js/helpers/apiFrases.js"></script>
+	</body>
 </html>

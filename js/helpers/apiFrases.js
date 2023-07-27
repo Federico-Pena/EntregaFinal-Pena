@@ -1,0 +1,60 @@
+const btnFrases = document.querySelector('.btnFrases')
+const btnCerrarFrase = document.querySelector('.btnCerrarFrase')
+const btnVerOtraFrase = document.querySelector('.btnVerOtraFrase')
+const productos = document.querySelector('#divProductos')
+const buscar = document.querySelector('.buscar')
+const header = document.querySelector('.header')
+
+/**
+ * De forma local solo porque esta en español
+ */
+const url = '/frases.json'
+
+btnFrases.addEventListener('click', () => {
+	obtenerDatos(url)
+	const chistesContainer = document.querySelector('.chistesContainer')
+	chistesContainer.classList.add('animate__flipInY')
+	header.classList.add('hidden')
+	productos.classList.add('hidden')
+	buscar.classList.add('hidden')
+	setTimeout(() => {
+		chistesContainer.classList.remove('animate__flipInY')
+	}, 1500)
+	chistesContainer.style.display = 'flex'
+})
+
+btnCerrarFrase.addEventListener('click', () => {
+	const chistesContainer = document.querySelector('.chistesContainer')
+	buscar.classList.remove('hidden')
+	header.classList.remove('hidden')
+	productos.classList.remove('hidden')
+	chistesContainer.classList.add('animate__flipOutY')
+	setTimeout(() => {
+		chistesContainer.classList.remove('animate__flipOutY')
+		chistesContainer.style.display = 'none'
+	}, 1000)
+})
+
+btnVerOtraFrase.addEventListener('click', () => {
+	obtenerDatos(url)
+	document.querySelector('.autor').classList.add('animate__flipInY')
+	document.querySelector('.frase').classList.add('animate__flipInX')
+	setTimeout(() => {
+		document.querySelector('.autor').classList.remove('animate__flipInY')
+		document.querySelector('.frase').classList.remove('animate__flipInX')
+	}, 600)
+})
+
+async function obtenerDatos(url) {
+	try {
+		const response = await fetch(url)
+		const { arrayFrases } = await response.json()
+		const autor = document.querySelector('.autor')
+		const frase = document.querySelector('.frase')
+		let randomNum = Math.floor(Math.random() * arrayFrases.length)
+		autor.innerHTML = arrayFrases[randomNum].autor
+		frase.innerHTML = arrayFrases[randomNum].frase
+	} catch (error) {
+		console.error('Error al Obtener Las Frases', error)
+	}
+}

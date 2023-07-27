@@ -1,0 +1,83 @@
+/* AGREGAR PRODUCTO */
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	width: 50%;
+	min-width: 300px;
+	max-width: 800px;
+	height: auto;
+	margin: 4rem auto;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.562);
+	background-color: rgba(255, 255, 255, 0.116);
+	backdrop-filter: blur(10px);
+}
+.form h1 {
+	text-align: center;
+}
+.labelInput {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	position: relative;
+}
+.inputForm {
+	height: 2rem;
+	border-radius: 0.5rem;
+	outline: none;
+	border: none;
+	padding: 0.5rem;
+	transition: all 0.2s linear;
+	font-weight: 550;
+}
+.inputForm:hover {
+	box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.616);
+	transform: scale(1, 1.05);
+}
+.inputFile {
+	opacity: 0;
+	position: absolute;
+	height: 100%;
+	cursor: pointer;
+	width: 100%;
+}
+.preview {
+	display: flex;
+	width: 200px;
+	height: 200px;
+	border-radius: 0.2rem;
+}
+.preview img {
+	width: 100%;
+	height: 100%;
+	border-radius: 0.5rem;
+	aspect-ratio: 16/9;
+}
+#labelFIle::after {
+	content: 'Cargar Archivo...';
+	padding: 0.5rem;
+	text-align: center;
+	border-radius: 0.5rem;
+	background-color: #ffffff;
+	color: #303030;
+}
+.btnForm {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(60, 247, 43, 0.404);
+	border: none;
+	padding: 1rem 0;
+	border-radius: 0.5rem;
+	font-weight: bold;
+	transition: all.3s linear;
+}
+.btnForm:hover {
+	background-color: rgb(60, 247, 43);
+	transform: scale(0.98);
+}
