@@ -1,0 +1,186 @@
+.carrito {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	overflow-x: hidden;
+	z-index: 3;
+	transition: opacity 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(48, 48, 48);
+	border: 1px solid white;
+	border-radius: 0.5rem;
+	padding: 1rem 0;
+	gap: 1rem;
+}
+
+.hidden {
+	display: none;
+}
+.carrito h2 {
+	border-bottom: 1px solid white;
+}
+.carrito #cerrarCarrito {
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	top: 2%;
+	right: 3%;
+	border: none;
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	z-index: 2;
+	transition: all 0.3s ease;
+}
+.carrito #cerrarCarrito img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.carrito #cerrarCarrito:hover {
+	transform: scale(0.9);
+}
+.carrito .total {
+	color: #ffffff;
+	width: 100%;
+	text-align: center;
+}
+.carrito .comprar,
+.vaciarCarrito {
+	width: 50%;
+	height: 3rem;
+	border-radius: 0.5rem;
+	background-color: rgba(21, 255, 0, 0.637);
+	color: #ffffff;
+	border: none;
+	font-weight: bolder;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	transition: all 0.3s ease;
+}
+.carrito .vaciarCarrito {
+	background-color: rgba(255, 0, 0, 0.637);
+}
+.carrito .comprar:hover {
+	transform: scaleX(0.98);
+}
+.carrito .vaciarCarrito:hover {
+	transform: scaleX(0.98);
+}
+
+#swal2-html-container {
+	padding: 0;
+	margin: 1rem 0;
+}
+#num1,
+#num2,
+#num3,
+#num4 {
+	-moz-appearance: textfield;
+	text-align: center;
+}
+
+#num1::-webkit-inner-spin-button,
+#num1::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+#num2::-webkit-inner-spin-button,
+#num2::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+#num3::-webkit-inner-spin-button,
+#num3::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+#num4::-webkit-inner-spin-button,
+#num4::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.carrito .divCarrito {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.carrito .divCarrito .prodCarrito {
+	width: 100%;
+	height: 5rem;
+	max-width: 700px;
+	gap: 0.5rem;
+	padding-right: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	border: 1px solid white;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+.prodCarrito img {
+	width: 5rem;
+	height: 100%;
+	aspect-ratio: 1/1;
+	border-radius: 0.5rem;
+	object-fit: cover;
+}
+.prodCarrito strong {
+	flex-shrink: 2;
+	width: 100%;
+	text-align: center;
+}
+.prodCarrito p {
+	text-align: center;
+	width: 100%;
+	flex-shrink: 2;
+	overflow: auto;
+}
+.prodCarrito .cantidad {
+	width: fit-content;
+	text-align: center;
+	padding: 0.2rem;
+}
+.prodCarrito .restar {
+	text-align: end;
+}
+.prodCarrito .sumar {
+	text-align: start;
+}
+.prodCarrito .restar,
+.sumar {
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-weight: bolder;
+}
+.prodCarrito .sumar:hover,
+.restar:hover {
+	text-shadow: 1px 1px 10px white;
+}
+.prodCarrito button {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.5rem;
+	background-image: url('../assets/icons/trash.svg');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: rgba(255, 0, 0, 0.637);
+	border: none;
+}
+.numTarjeta {
+	width: 20%;
+	margin: 0;
+	padding: 0;
+}

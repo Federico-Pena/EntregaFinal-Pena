@@ -1,51 +1,13 @@
+import { buscarLocalStorage, guardarLocalStorage } from './localStorage'
 import { alerta } from '../SweetAlert/sweetAlert.js'
-
-/**
- *
- * @param {string} db
- * Nombre de la db donde se quiere guardar
- * @param {*} elemento
- * Elemento a guardar
- */
-export const guardarLocalStorage = (db, elemento) => {
-	localStorage.setItem(db, JSON.stringify(elemento))
-}
-/**
- *
- * @param {string} db
- * Nombre de la db donde se quiere Borrar
- * @Info localStorage.removeItem(db)
- */
-export const borrarLocalStorage = (db) => {
-	localStorage.removeItem(db)
-}
-/**
- *
- * @param {object} producto
- * El objeto creado a partir del formulario
- * @Info Guarda el producto en localStorage
- * @Info Pagina Agregar Productos
- */
-export const guardarProducto = (producto) => {
-	const DbProductos = JSON.parse(localStorage.getItem('Productos'))
-	if (!DbProductos || !DbProductos.length) {
-		let productos = []
-		productos.push(producto)
-		guardarLocalStorage('Productos', productos)
-	} else {
-		DbProductos.push(producto)
-		guardarLocalStorage('Productos', DbProductos)
-	}
-	mostrarProd()
-}
 
 /**
  * @Info Metodo para mostrar el producto agregado bajo el formulario
  * @Info Pagina Agregar Productos
  */
 export const mostrarProd = () => {
-	const DbProductos = JSON.parse(localStorage.getItem('Productos'))
-	if (!DbProductos || !DbProductos.length) {
+	const DbProductos = buscarLocalStorage('Productos')
+	if (!DbProductos.length) {
 		const stock = document.getElementById('stock')
 		stock.innerHTML = ''
 		const cardProducto = document.createElement('div')
@@ -77,6 +39,23 @@ export const mostrarProd = () => {
 	}
 }
 
+/**
+ *
+ * @param {object} producto
+ * El objeto creado a partir del formulario
+ * @Info Guarda el producto en localStorage
+ * @Info Pagina Agregar Productos
+ */
+export const guardarProducto = (producto) => {
+	const DbProductos = buscarLocalStorage('Productos')
+	if (!DbProductos.length) {
+		guardarLocalStorage('Productos', [producto])
+	} else {
+		DbProductos.push(producto)
+		guardarLocalStorage('Productos', DbProductos)
+	}
+	mostrarProd()
+}
 /**
  * @Info Metodo para eliminar un producto desde el stock fijo desde un boton en la card del producto
  * @Info Pagina Agregar Productos

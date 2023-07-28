@@ -3,12 +3,11 @@ export const animEliminarCuenta = (event) => {
 	logOut.classList.add('animate__bounceOut')
 	const eliminarCuenta = document.querySelector('.eliminarCuenta')
 	eliminarCuenta.classList.add('animate__bounceOut')
-	const userName = event.target.parentElement.children[3]
+	const userName = document.querySelector('.nameUserNav')
 	userName.classList.add('animate__bounceOut')
-
 	setTimeout(() => {
-		document.querySelector('.iraReg ').classList.remove('hidden')
-		document.querySelector('#login ').classList.remove('hidden')
+		document.querySelector('.btnRegistrarse ').classList.remove('hidden')
+		document.querySelector('#btnLogin ').classList.remove('hidden')
 		logOut.classList.remove('animate__bounceOut')
 		logOut.classList.add('hidden')
 		userName.classList.remove('animate__bounceOut')

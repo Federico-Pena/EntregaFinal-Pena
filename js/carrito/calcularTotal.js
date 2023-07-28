@@ -1,6 +1,3 @@
-/**
- * Funcion que calcula el total a base del textContent de los productos listados
- */
 export function calcularTotal() {
 	let total = 0
 	const prodCarrito = document.querySelectorAll('.prodCarrito')
