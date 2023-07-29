@@ -67,4 +67,20 @@ export function buscarProd(event) {
 		}
 	})
 }
+export const filtros = async () => {
+	const categorias = document.getElementById('Categorías')
+	const res = await fetch('./productos.json')
+	const { productos } = await res.json()
+	let cat = []
+	productos.forEach((a) => {
+		cat.push(a.categoría)
+	})
+	const filtradas = new Set(cat)
+	filtradas.forEach((categoria) => {
+		const botón = document.createElement('button')
+		botón.innerText = categoria
+		categorias.append(botón)
+	})
+}
+filtros()
 ///////////////		BÚSQUEDA	/////////////////

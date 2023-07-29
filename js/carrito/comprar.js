@@ -12,14 +12,15 @@ import {
 import { calcularTotal } from './calcularTotal.js'
 import { mostrarProdCarrito } from './carrito.js'
 
-export async function comprar() {
+export async function comprar(e) {
+	const btnComprar = e.currentTarget
 	const userActive = buscarLocalStorage('userActive')
 	if (userActive.length) {
 		let total = 0
 		const prodsCarrito = document.querySelectorAll('.prodCarrito')
 		if (prodsCarrito.length) {
+			btnComprar.innerHTML = `<div class="custom-loader"></div>`
 			prodsCarrito.forEach((prod) => {
-				console.log(prod.querySelector('.prodPrecio'))
 				const precio = parseInt(prod.querySelector('.prodPrecio').id)
 				const cantidad = parseInt(prod.querySelector('.cantidad').textContent)
 				total += precio * cantidad
@@ -34,6 +35,8 @@ export async function comprar() {
 				if (userMatch) {
 					if (userMatch.tarjeta === '') {
 						const res = await alertaTarjeta(userMatch)
+						btnComprar.innerHTML = `Comprar`
+
 						if (res.isConfirmed == true) {
 							const filterUsers = dbUsers.filter(
 								(user) => user.user !== userMatch.user
@@ -52,6 +55,8 @@ export async function comprar() {
 						}
 					} else {
 						const res = await alertaConfirmarCompra(userMatch, total)
+						btnComprar.innerHTML = `Comprar`
+
 						if (res.isConfirmed) {
 							alertaGraciasPorSuCompra()
 							const divCarrito = document.querySelector('.divCarrito')

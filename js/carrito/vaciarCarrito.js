@@ -6,10 +6,14 @@ import {
 import { calcularTotal } from './calcularTotal.js'
 import { carritoLength, mostrarProdCarrito } from './carrito.js'
 
-export async function vaciarCarrito() {
+export async function vaciarCarrito(e) {
+	const btnVAciar = e.currentTarget
 	const db = buscarLocalStorage('carrito')
 	if (db.length) {
+		btnVAciar.innerHTML = `<div class="custom-loader"></div>`
 		const res = await alertaVaciarCarrito()
+		btnVAciar.innerHTML = `Vaciar Carrito`
+
 		if (res.isConfirmed) {
 			const divCarrito = document.querySelector('.divCarrito')
 			divCarrito.classList.add('animate__flipOutY')

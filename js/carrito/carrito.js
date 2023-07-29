@@ -24,6 +24,7 @@ abrirCarrito.addEventListener('click', () => {
 // Listener Para comprar
 const btnComprar = document.querySelector('.comprar')
 btnComprar.addEventListener('click', comprar)
+
 export function btnsBorrarDelCarrito() {
 	// Listener para eliminar un producto del carrito
 	const divCarrito = document.querySelector('.divCarrito')

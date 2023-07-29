@@ -18,7 +18,6 @@
 	gap: 1rem;
 }
 
-
 .carrito h2 {
 	border-bottom: 1px solid white;
 }
@@ -46,12 +45,13 @@
 	color: #ffffff;
 	width: 100%;
 	text-align: center;
+	border: none;
 }
 .carrito .comprar,
 .vaciarCarrito {
-	width: 50%;
-	height: 3rem;
-	border-radius: 0.5rem;
+	width: 80%;
+	padding: 0.5rem 1rem;
+	border-radius: 0.2rem;
 	background-color: rgba(21, 255, 0, 0.637);
 	color: #ffffff;
 	border: none;
@@ -59,6 +59,9 @@
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	transition: all 0.3s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .carrito .vaciarCarrito {
 	background-color: rgba(255, 0, 0, 0.637);
@@ -105,18 +108,18 @@
 .carrito .divCarrito {
 	width: 100%;
 	height: 100%;
+	overflow: auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	gap: 0.5rem;
+	padding: 1rem 0;
 }
 
 .carrito .divCarrito .prodCarrito {
 	width: 100%;
-	height: 5rem;
+	min-height: 4rem;
 	max-width: 700px;
-	gap: 0.5rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -131,18 +134,21 @@
 	aspect-ratio: 1/1;
 	border-radius: 0.5rem;
 	background-color: #ffffff;
-	object-fit: cover;
+	object-fit: contain;
 }
 .prodCarrito strong {
 	flex-shrink: 2;
 	width: 100%;
 	text-align: center;
+	border: none;
 }
-.prodCarrito p {
-	text-align: center;
+.prodCarrito .prodNombre {
 	width: 100%;
 	flex-shrink: 2;
 	overflow: auto;
+	padding: 0.5rem;
+	font-size: 14px;
+	overflow-wrap: break-word;
 }
 .prodCarrito .cantidad {
 	width: fit-content;
@@ -157,7 +163,7 @@
 }
 .prodCarrito .restar,
 .sumar {
-	font-size: 1.5rem;
+	padding: 0 0.5rem;
 	cursor: pointer;
 	transition: all 0.2s ease;
 	font-weight: bolder;
@@ -175,8 +181,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	padding: .3rem;
-
+	padding: 0.3rem;
 }
 .numTarjeta {
 	width: 20%;

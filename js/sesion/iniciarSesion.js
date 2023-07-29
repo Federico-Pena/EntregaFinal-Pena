@@ -9,7 +9,10 @@ import { buscarUsuarioLogin } from '../helpers/buscarUsuarioLogin.js'
 import { guardarLocalStorage } from '../localStorage/helpers.js'
 
 export const login = async () => {
+	const btnLogin = document.querySelector('#btnLogin')
+	btnLogin.innerHTML = `<div class="custom-loader"></div>`
 	const result = await alertaLogin()
+	btnLogin.innerHTML = 'Iniciar Sesión'
 	if (result.value) {
 		const userName = result.value.user
 		const userPass = result.value.password

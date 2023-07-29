@@ -6,19 +6,16 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
 	gap: 0.5rem;
 }
 .cardProducto {
 	width: 100%;
 	max-width: 300px;
-	max-height: 500px;
-	height: 450px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: 1rem;
-	background-color: rgba(255, 255, 255, 0.116);
+	background-color: var(--gris);
+	color: black;
 	backdrop-filter: blur(10px);
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.562);
 	border-radius: 0.5rem;
@@ -27,9 +24,9 @@
 }
 .cardProducto .imgProd {
 	width: 100%;
-	height: 200px;
+	height: 280px;
 	transition: all.3s ease;
-	object-fit: cover;
+	object-fit: contain;
 	border-radius: 0.5rem;
 	background-color: #ffffff;
 }
@@ -38,7 +35,15 @@
 small,
 strong {
 	width: 100%;
+	height: 40px;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #000000;
+}
+.cardProducto strong {
+	border: none;
 }
 .cardProducto .ListaVacia {
 	display: flex;
@@ -66,11 +71,11 @@ strong {
 }
 .btnAgregar {
 	padding: 0.5rem 1rem;
-	background-color: rgba(60, 247, 43, 0.404);
+	background-color: var(--verde);
 	border: none;
 	border-radius: 0.5rem;
 	font-weight: bold;
-	transition: all .3s ease;
+	transition: all 0.3s ease;
 	position: relative;
 }
 .cardProducto:hover .btnAgregar {
@@ -80,14 +85,11 @@ strong {
 .btnAgregar .fa-solid {
 	transition: all 2s ease;
 	position: absolute;
-	left: .5rem;
+	left: 0.5rem;
 }
-	.btnAgregar:hover .fa-solid {
+.btnAgregar:hover .fa-solid {
 	transition: all 2s ease;
 	position: absolute;
 	left: 90%;
-	color: #008cff;
-}
-.hidden {
-	display: none;
+	color: var(--rosa);
 }

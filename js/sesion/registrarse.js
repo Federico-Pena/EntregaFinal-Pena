@@ -7,7 +7,10 @@ import { buscarUsuarioRegistro } from '../helpers/buscarUsuarioRegistro.js'
 import { guardarUsuario } from '../helpers/guardarUsuario.js'
 
 export const registrarse = async () => {
+	const btnRegistrarse = document.querySelector('.btnRegistrarse')
+	btnRegistrarse.innerHTML = `<div class="custom-loader"></div>`
 	const confirm = await alertaRegistro()
+	btnRegistrarse.innerHTML = 'Registrarse'
 	if (confirm.value) {
 		const userName = confirm.value.user
 		const userPass = confirm.value.password
@@ -21,7 +24,6 @@ export const registrarse = async () => {
 		} else {
 			guardarUsuario(user)
 			alertaBienvenidaRegistro(userName)
-			const btnRegistrarse = document.querySelector('.btnRegistrarse')
 			btnRegistrarse.classList.add('hidden')
 		}
 	}

@@ -23,6 +23,7 @@
 		<!-- ////////SWEET ALERT////////  -->
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<title>La Casa de la Alfombra</title>
+		<link rel="stylesheet" href="./css/reset.css" />
 		<link rel="stylesheet" href="./css/index.css" />
 		<link rel="stylesheet" href="./css/carrito.css" />
 		<link rel="stylesheet" href="./css/productos.css" />
@@ -33,47 +34,29 @@
 			<header class="header animate__animated animate__backInDown">
 				<nav class="navBar">
 					<ul>
-						<li>
-							<button title="Registrarse" class="btnRegistrarse">
-								Registrarse
-							</button>
+						<li title="Registrarse" class="btnRegistrarse">Registrarse</li>
+						<li title="Iniciar Sesión" id="btnLogin">Iniciar Sesión</li>
+						<li title="Cerrar Sesión" class="logout hidden animate__animated">
+							Cerrar Sesión
 						</li>
-						<li>
-							<button title="Iniciar Sesión" id="btnLogin">
-								Iniciar Sesión
-							</button>
-						</li>
-						<li>
+						<li class="hidden nameUserNav animate__animated">
+							<i class="fa-solid fa-user fa-xl"></i>
 							<button
-								title="Cerrar Sesión"
-								class="logout hidden animate__animated">
-								Cerrar Sesión
+								title="eliminar Cuenta"
+								class="hidden eliminarCuenta animate__animated">
+								Eliminar Cuenta
 							</button>
 						</li>
-						<li>
-							<button class="hidden nameUserNav animate__animated">
-								<i class="fa-solid fa-user fa-xl"></i>
-								<button
-									title="eliminar Cuenta"
-									class="hidden eliminarCuenta animate__animated">
-									Eliminar Cuenta
-								</button>
-							</button>
-						</li>
-						<li>
+						<li id="agregar" class="hidden animate__animated">
 							<a
 								title="Ir a Agregar Productos"
-								href="./pages/agregarProducto.html"
-								class="hidden animate__animated"
-								id="agregar">
+								href="./pages/agregarProducto.html">
 								AGREGAR
 							</a>
 						</li>
-						<li>
-							<button id="btnCarrito" title="carrito de compras">
-								<p class="carritoLength animate__animated"></p>
-								<i class="fa-solid fa-shop fa-lg"></i>
-							</button>
+						<li id="btnCarrito" title="carrito de compras">
+							<p class="carritoLength animate__animated"></p>
+							<i class="fa-solid fa-shop fa-lg"></i>
 						</li>
 					</ul>
 				</nav>
@@ -84,7 +67,9 @@
 						<i class="fa-solid fa-x fa-xl"></i>
 					</button>
 					<h2>CARRITO DE COMPRAS</h2>
-					<div class="divCarrito animate__animated"></div>
+					<div class="divCarrito animate__animated">
+						<!-- Aquí van los Productos del Carrito -->
+					</div>
 					<strong class="total">$</strong>
 					<button class="comprar">Comprar</button>
 					<button class="vaciarCarrito">Vaciar carrito</button>
@@ -94,11 +79,14 @@
 					<input
 						id="buscar"
 						type="text"
-						placeholder="Nombre-medidas-composicion" />
+						placeholder="Nombre-medidas-composición" />
+					<div id="Categorías"></div>
 				</div>
 				<div
 					class="productos animate__animated animate__backInDown"
-					id="divProductos"></div>
+					id="divProductos">
+					<!-- Aquí van los Productos de la DB -->
+				</div>
 			</main>
 		</div>
 		<!-- bcryptJS -->
