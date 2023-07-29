@@ -28,20 +28,13 @@ export const login = async () => {
 			) {
 				alertaLoginAdmin(result.value.user)
 				guardarLocalStorage('userActive', result.value.user)
-				const btnlogin = document.getElementById('btnLogin')
+				animLogin()
 				const agregar = document.getElementById('agregar')
-				btnlogin.classList.add('hidden')
 				agregar.classList.remove('hidden')
 				agregar.classList.add('animate__bounce')
 				setTimeout(() => {
 					agregar.classList.remove('animate__bounce')
 				}, 1000)
-				const nameUserNav = document.querySelector('.nameUserNav')
-				nameUserNav.innerHTML = result.value.user
-				nameUserNav.classList.remove('hidden')
-				nameUserNav.classList.add('animate__bounce')
-				const btnRegistrarse = document.querySelector('.btnRegistrarse')
-				btnRegistrarse.classList.add('hidden')
 			} else {
 				alertaFallaLogin()
 			}

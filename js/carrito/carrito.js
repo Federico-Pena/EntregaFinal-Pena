@@ -1,5 +1,4 @@
 ///////////carrito
-import { agregarAlCarrito } from './agregarAlCarrito.js'
 import { eliminarDelCarrito } from './eliminarDelCarrito.js'
 import { animAbrirCarrito } from '../animations/carrito/abrirCarrito.js'
 import { animCerrarCarrito } from '../animations/carrito/cerrarCarrito.js'
@@ -19,23 +18,25 @@ abrirCarrito.addEventListener('click', () => {
 	mostrarProdCarrito()
 	calcularCantidad()
 	calcularTotal()
+	btnsBorrarDelCarrito()
 })
-// Listener para agregar productos a la carrito
-const cardProducto = document.querySelectorAll('.cardProducto')
-if (cardProducto) {
-	cardProducto.forEach((card) => {
-		card.addEventListener('click', agregarAlCarrito)
-	})
-}
+
 // Listener Para comprar
 const btnComprar = document.querySelector('.comprar')
 btnComprar.addEventListener('click', comprar)
-// Listener para eliminar un producto del carrito
-const divCarrito = document.querySelector('.divCarrito')
-divCarrito.addEventListener('click', (e) => eliminarDelCarrito(e))
+export function btnsBorrarDelCarrito() {
+	// Listener para eliminar un producto del carrito
+	const divCarrito = document.querySelector('.divCarrito')
+	const botones = divCarrito.querySelectorAll('.btnBorrarDelCarrito')
+	botones.forEach((btn) => {
+		btn.addEventListener('click', eliminarDelCarrito)
+	})
+}
+
 // Listener para vaciar el carrito completo
 const btnVaciarCarrito = document.querySelector('.vaciarCarrito')
 btnVaciarCarrito.addEventListener('click', vaciarCarrito)
+
 // Funcion para obtener productos, y pintarlos en el carrito
 export function mostrarProdCarrito() {
 	const db = buscarLocalStorage('carrito')
@@ -47,24 +48,31 @@ export function mostrarProdCarrito() {
 			producto.classList.add('prodCarrito')
 			producto.classList.add('animate__animated')
 			producto.innerHTML = `
-                    <p class="hidden">${prod.id}</p>
-                    <img src=${prod.foto} alt=${prod.nombre}>
-                    <p>${prod.nombre}</p>
-                    <strong>$ ${prod.precio}</strong>  
+                    <img class="prodFoto" id=${prod.foto} src=${
+				prod.foto
+			} alt=${prod.nombre}>
+                    <p class="prodNombre" id=${prod.nombre}>${prod.nombre}</p>
+                    <strong class="prodPrecio" id=${prod.precio}>$ ${
+				prod.precio
+			}</strong>  
                     <span class="restar">-</span>
-                    <strong class="cantidad">${prod.cantidad || 1}</strong>
+                    <strong  id=${prod.cantidad} class="cantidad">${
+				prod.cantidad || 1
+			}</strong>
                     <span class="sumar">+</span>
-                    <button name="btnBorrarCarrito"></button>                          
+                    <button id=${
+											prod.id
+										} class="btnBorrarDelCarrito"><i class="fa-solid fa-circle-xmark"></i></button>                          
         `
 			divCarrito.appendChild(producto)
 		})
 	} else {
 		divCarrito.innerHTML = `
-      <img class="carritoimg" src="../assets/carritoVacio.png" alt="carrito Vacio">          
+      <img class="carritoimg" src="../assets/carritoVacio.png" alt="carrito Vacío">          
   `
 	}
 }
-// Funcion para mostrar la cantidad de productos en el carrito
+// Función para mostrar la cantidad de productos en el carrito
 // con un numero animado
 export function carritoLength() {
 	const numCarrito = document.querySelector('.carritoLength')

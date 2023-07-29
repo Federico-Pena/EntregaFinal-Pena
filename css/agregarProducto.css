@@ -25,11 +25,12 @@
 	flex: auto;
 }
 .container header {
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
-	z-index: 2;
+	height: 3rem;
+	position: fixed;
+	display: flex;
+	top: 0;
+	z-index: 2;background-color: #ffffff;
 }
 .container header .container {
 	display: flex;
@@ -39,13 +40,21 @@
 	backdrop-filter: blur(10px);
 }
 header .container a {
-	color: #ffffff;
+	padding: 0.5rem 0;
+	background-color: transparent;
+	border: none;
+	border-radius: 0.5rem;
+	font-weight: bold;
+	color: #000000;
+	transition: all.3s linear;
+	letter-spacing: 1px;
+	word-wrap: break-word;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 header .container a:hover {
 	text-decoration: underline;
-	color: #ffffffa9;
+	color: #7019d3a9;
 }
 /*Formulario AGREGAR PRODUCTO */
 .container .form {

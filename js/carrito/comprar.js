@@ -1,6 +1,6 @@
 import {
 	alertaConfirmarCompra,
-	alertaDebeIniciarSesion,
+	alertaDebeIniciarSesión,
 	alertaGraciasPorSuCompra,
 	alertaTarjeta,
 } from '../SweetAlert/sweetAlert.js'
@@ -18,11 +18,10 @@ export async function comprar() {
 		let total = 0
 		const prodsCarrito = document.querySelectorAll('.prodCarrito')
 		if (prodsCarrito.length) {
-			prodsCarrito.forEach((prodsCarrito) => {
-				const precio = parseFloat(
-					prodsCarrito.children[3].innerText.split(' ')[1]
-				)
-				const cantidad = parseInt(prodsCarrito.children[5].innerText)
+			prodsCarrito.forEach((prod) => {
+				console.log(prod.querySelector('.prodPrecio'))
+				const precio = parseInt(prod.querySelector('.prodPrecio').id)
+				const cantidad = parseInt(prod.querySelector('.cantidad').textContent)
 				total += precio * cantidad
 			})
 			const dbUsers = buscarLocalStorage('usuarios')
@@ -73,7 +72,7 @@ export async function comprar() {
 		if (!carrito.length) {
 			return
 		} else {
-			alertaDebeIniciarSesion()
+			alertaDebeIniciarSesión()
 		}
 	}
 }

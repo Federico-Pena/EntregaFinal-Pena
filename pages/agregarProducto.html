@@ -12,16 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- ////////ANIMACIONES////////  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- ////////font-awesome////////  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- ////////SWEET ALERT////////  -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- ////////ESTILOS PERSONALIZADOS////////  -->
 <link rel="stylesheet" href="../css/agregarProducto.css">
+<link rel="stylesheet" href="../css/productos.css">
     <title>La Casa de la Alfombra</title>
 </head>
 
 <body id="bodyAgregarProductos">
     <div class="container">
-        <header>
+        <header >
             <div class="container">
                 <a href="../index.html"> Productos</a>
             </div>
@@ -30,13 +33,13 @@
             <h1>Agregar Producto</h1>
             <label class="labelInput" for="nombre">Nombre <input id="nombre" required class="inputForm" type="text"
                     placeholder="Alfombra Fantasia"></label>
-            <label class="labelInput" for="precio">Precio <input step="0.01" id="precio" required class="inputForm"
+            <label class="labelInput" for="precio">Precio <input step="0.01" id="precio" placeholder="Precio" required class="inputForm"
                     type="number"></label>
-            <label class="labelInput" for="dimensiones">Dimensiones<input id="dimensiones" required class="inputForm"
-                    type="text" placeholder="150x240"></label>
-            <label class="labelInput" for="caracteristicas">Caracteristicas <input id="caracteristicas" required
-                    class="inputForm" type="text" placeholder=" Material, Color"></label>
-            <label class="labelInput" for="foto" id="labelFIle">Agregar foto <input id="foto" class="inputFile"
+            <label class="labelInput" for="Detalles">Detalles<input id="Detalles" required class="inputForm"
+                    type="text" placeholder="Detalles"></label>
+            <label class="labelInput" for="Categoría">Categoría <input id="Categoría" required
+                    class="inputForm" type="text" placeholder=" Categoría"></label>
+            <label class="labelInput" for="foto" id="labelFIle">Agregar foto <input id="foto" placeholder="Foto" class="inputFile"
                     type="file" accept="image/*"></label>
             <div class="preview">
                 <img id="preview" src='https://placehold.co/200/ffffff1e/000?text=Carga una imagen'></img>
@@ -46,6 +49,7 @@
         </form>
         <div class="productos animate__animated animate__backInDown" id="stock"></div>
     </div>
+    <script type="module" src="../js/agregarProducto.js"></script>
 </body>
 
 </html>

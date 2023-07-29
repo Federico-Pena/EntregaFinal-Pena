@@ -1,3 +1,4 @@
+/* global dcodeIO*/
 import {
 	borrarLocalStorage,
 	buscarLocalStorage,

@@ -4,16 +4,18 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="shortcut icon"
-			href="../assets/alfombra-roja-favicon.png"
-			type="image/x-icon" />
+		<meta name="description" content="Tienda Electrónica" />
+		<link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-webp" />
 		<!-- ////////FUENTE//////// -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap"
 			rel="stylesheet" />
+		<!-- ////////font-awesome////////  -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 		<!-- ////////ANIMACIONES////////  -->
 		<link
 			rel="stylesheet"
@@ -37,31 +39,31 @@
 							</button>
 						</li>
 						<li>
-							<button title="INICIAR SESION" id="btnLogin">
-								INICIAR SESION
+							<button title="Iniciar Sesión" id="btnLogin">
+								Iniciar Sesión
 							</button>
 						</li>
 						<li>
 							<button
-								title="Cerrar sesion"
+								title="Cerrar Sesión"
 								class="logout hidden animate__animated">
-								Cerrar sesion
+								Cerrar Sesión
 							</button>
 						</li>
 						<li>
-							<strong class="hidden nameUserNav animate__animated"></strong>
-						</li>
-						<li>
-							<small
-								title="eliminar Cuenta"
-								class="hidden eliminarCuenta animate__animated"
-								>Eliminar Cuenta</small
-							>
+							<button class="hidden nameUserNav animate__animated">
+								<i class="fa-solid fa-user fa-xl"></i>
+								<button
+									title="eliminar Cuenta"
+									class="hidden eliminarCuenta animate__animated">
+									Eliminar Cuenta
+								</button>
+							</button>
 						</li>
 						<li>
 							<a
 								title="Ir a Agregar Productos"
-								href="./agregarProducto.html"
+								href="./pages/agregarProducto.html"
 								class="hidden animate__animated"
 								id="agregar">
 								AGREGAR
@@ -70,10 +72,7 @@
 						<li>
 							<button id="btnCarrito" title="carrito de compras">
 								<p class="carritoLength animate__animated"></p>
-								<img
-									class="animate__animated"
-									src="../assets/icons/carrito.svg"
-									alt="Icono carrito de compras" />
+								<i class="fa-solid fa-shop fa-lg"></i>
 							</button>
 						</li>
 					</ul>
@@ -82,10 +81,7 @@
 			<main>
 				<div class="carrito hidden animate__animated">
 					<button id="cerrarCarrito">
-						<img
-							title="cerrar.svg"
-							src="../assets/icons/cerrar.svg"
-							alt="Boton cerrar" />
+						<i class="fa-solid fa-x fa-xl"></i>
 					</button>
 					<h2>CARRITO DE COMPRAS</h2>
 					<div class="divCarrito animate__animated"></div>
@@ -102,112 +98,7 @@
 				</div>
 				<div
 					class="productos animate__animated animate__backInDown"
-					id="divProductos">
-					<div class="cardProducto">
-						<img
-							title="Caminero de yute"
-							src="../assets/productos/caminero-yute.webp"
-							alt="Caminero de yute" />
-						<p>Caminero de yute</p>
-						<small>Caminero de yute</small>
-						<small>100×150 cm</small>
-						<strong>$ 950</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Alfombra África"
-							src="../assets/productos/Alfombra África.jpg"
-							alt="Alfombra África" />
-						<p>Alfombra África</p>
-						<small>100% polipropileno – Base: 100% yute</small>
-						<small>100×150 cm</small>
-						<strong>$ 652</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Alfombra alba"
-							src="../assets/productos/Alfombra-alba.jpg"
-							alt="Alfombra alba" />
-						<p>Alfombra Alba</p>
-						<small>100% polipropileno – Base: 100% yute</small>
-						<small>60×90 cm</small>
-						<strong>$ 300</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Alfombra Algodon Gris"
-							src="../assets/productos/alfombra-algodon-gris.jpg"
-							alt="Alfombra Algodon Gris" />
-						<p>Alfombra Algodon Gris</p>
-						<small>100% Algodon</small>
-						<small>160×230 cm</small>
-						<strong>$ 5890</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Alfombra Tela Blanca"
-							src="../assets/productos/alfombra-tela-blanco-pompone-90cm.jpg"
-							alt="Alfombra Tela Blanca" />
-						<p>Alfombra Tela Blanca</p>
-						<small>Tela</small>
-						<small>90x90cm</small>
-						<strong>$ 1830</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Alfombra de coco"
-							src="../assets/productos/felpudo-coco.jpg"
-							alt="Alfombra de coco" />
-						<p>Alfombra de coco</p>
-						<small>Coco</small>
-						<small>45x75cm</small>
-						<strong>$ 390</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Felpudo de coco Beige"
-							src="../assets/productos/felpudo-fibra-coco-natural-beige-liso.jpg"
-							alt="Felpudo de coco Beige" />
-						<p>Felpudo de coco Beige</p>
-						<small>Coco</small>
-						<small>40x70cm</small>
-						<strong>$ 420</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-					<div class="cardProducto">
-						<img
-							title="Felpudo de Goma Negro"
-							src="../assets/productos/felpudo-goma-negro-hierro.jpg"
-							alt="Felpudo de Goma Negro" />
-						<p>Felpudo de Goma Negro</p>
-						<small>Goma / Caucho</small>
-						<small>45x75cm</small>
-						<strong>$ 605</strong>
-						<button title="Agregar al Carrito" class="btnAgregar">
-							Agregar al Carrito
-						</button>
-					</div>
-				</div>
+					id="divProductos"></div>
 			</main>
 		</div>
 		<!-- bcryptJS -->

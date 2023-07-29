@@ -3,46 +3,48 @@ import {
 	guardarLocalStorage,
 } from '../localStorage/helpers.js'
 import { calcularTotal } from './calcularTotal.js'
+
 export function calcularCantidad() {
 	const prodsCarrito = document.querySelectorAll('.prodCarrito')
 	prodsCarrito.forEach((prod) => {
-		prod.children[4].addEventListener('click', () =>
-			restarCantidad(prod.children[5], prod.children[0].textContent)
-		)
-		prod.children[6].addEventListener('click', () =>
-			sumarCantidad(prod.children[5], prod.children[0].textContent)
-		)
+		const restar = prod.querySelector('.restar')
+		const sumar = prod.querySelector('.sumar')
+		restar.addEventListener('click', () => restarCantidad(prod))
+		sumar.addEventListener('click', () => sumarCantidad(prod))
 	})
 }
-const restarCantidad = (cantidad, id) => {
+
+const restarCantidad = (prod) => {
+	let cantidad = prod.querySelector('.cantidad')
+	const id = parseInt(prod.querySelector('.btnBorrarDelCarrito').id)
 	const carritoDB = buscarLocalStorage('carrito')
-	let idNumero = parseInt(id)
-	if (cantidad.textContent < 2) {
+	if (parseInt(cantidad.textContent) < 2) {
+		const producto = carritoDB.find((prod) => parseInt(prod.id) === id)
 		cantidad.textContent = 1
-		calcularTotal()
-		const producto = carritoDB.find((prod) => prod.id === idNumero)
-		producto.cantidad = parseInt(cantidad.textContent)
-		const productos = carritoDB.filter((prod) => prod.id !== idNumero)
+		producto.cantidad = 1
+		const productos = carritoDB.filter((prod) => parseInt(prod.id) !== id)
 		productos.push(producto)
 		guardarLocalStorage('carrito', productos)
+		calcularTotal()
 	} else {
+		const producto = carritoDB.find((prod) => parseInt(prod.id) === id)
 		cantidad.textContent--
-		calcularTotal()
-		const producto = carritoDB.find((prod) => prod.id === idNumero)
-		producto.cantidad = parseInt(cantidad.textContent)
-		const productos = carritoDB.filter((prod) => prod.id !== idNumero)
+		producto.cantidad--
+		const productos = carritoDB.filter((prod) => parseInt(prod.id) !== id)
 		productos.push(producto)
 		guardarLocalStorage('carrito', productos)
+		calcularTotal()
 	}
 }
-const sumarCantidad = (cantidad, id) => {
+const sumarCantidad = (prod) => {
 	const carritoDB = buscarLocalStorage('carrito')
-	let idNumero = parseInt(id)
+	let cantidad = prod.querySelector('.cantidad')
+	const id = parseInt(prod.querySelector('.btnBorrarDelCarrito').id)
+	const producto = carritoDB.find((prod) => parseInt(prod.id) === id)
 	cantidad.textContent++
-	calcularTotal()
-	const producto = carritoDB.find((prod) => prod.id === idNumero)
-	producto.cantidad = parseInt(cantidad.textContent)
-	const productos = carritoDB.filter((prod) => prod.id !== idNumero)
+	producto.cantidad++
+	const productos = carritoDB.filter((prod) => parseInt(prod.id) !== id)
 	productos.push(producto)
 	guardarLocalStorage('carrito', productos)
+	calcularTotal()
 }

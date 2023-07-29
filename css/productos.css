@@ -11,70 +11,83 @@
 }
 .cardProducto {
 	width: 100%;
-	max-width: 18rem;
+	max-width: 300px;
 	max-height: 500px;
-	height: 100%;
+	height: 450px;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	gap: 1rem;
 	background-color: rgba(255, 255, 255, 0.116);
 	backdrop-filter: blur(10px);
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.562);
 	border-radius: 0.5rem;
 	padding: 0.5rem;
-	overflow: hidden;
-	transition: all.3s linear;
 	position: relative;
 }
-.cardProducto img {
+.cardProducto .imgProd {
 	width: 100%;
 	height: 200px;
+	transition: all.3s ease;
 	object-fit: cover;
 	border-radius: 0.5rem;
+	background-color: #ffffff;
 }
-.cardProducto:hover {
-	transform: scale(1.05);
-}
+
 .cardProducto p,
 small,
 strong {
 	width: 100%;
 	text-align: center;
 }
-.hidden {
-	display: none;
+.cardProducto .ListaVacia {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
+
 .btnBorrar {
-	width: 1.5rem;
-	height: 1.5rem;
 	position: absolute;
 	top: 3%;
 	right: 3%;
-	background-image: url('../assets/icons/trash.svg');
-	background-repeat: no-repeat;
-	background-position: center;
-	border-radius: 0.5rem;
-	background-color: rgba(255, 0, 0, 0.699);
+	height: 1.5rem;
+	width: 1.5rem;
+	border: none;
+	background-color: transparent;
+	transition: all.3s ease;
+	z-index: 2;
+	transform: scale(1.5);
 }
-
-.btnBorrar img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+.btnBorrar:hover {
+	transform: scale(1.7);
+	color: #ff0000;
 }
-
 .btnAgregar {
-	width: 60%;
-	height: 100%;
-	margin: auto;
+	padding: 0.5rem 1rem;
 	background-color: rgba(60, 247, 43, 0.404);
 	border: none;
-	padding: 0.5rem 0;
 	border-radius: 0.5rem;
 	font-weight: bold;
-	transition: all.3s linear;
+	transition: all .3s ease;
+	position: relative;
 }
-.btnAgregar:hover {
+.cardProducto:hover .btnAgregar {
+	transform: scale(0.95);
 	background-color: rgb(60, 247, 43);
-	border: 1px solid #ffffff;
+}
+.btnAgregar .fa-solid {
+	transition: all 2s ease;
+	position: absolute;
+	left: .5rem;
+}
+	.btnAgregar:hover .fa-solid {
+	transition: all 2s ease;
+	position: absolute;
+	left: 90%;
+	color: #008cff;
+}
+.hidden {
+	display: none;
 }

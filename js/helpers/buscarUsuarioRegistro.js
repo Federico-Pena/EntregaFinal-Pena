@@ -1,3 +1,4 @@
+/* global dcodeIO*/
 import { buscarLocalStorage } from '../localStorage/helpers.js'
 
 /**

@@ -1,21 +1,62 @@
-import { alerta } from './SweetAlert/sweetAlert.js'
 import {
-	guardarProducto,
-	mostrarProd,
-	borrarProd,
-} from './helpers/localStorage.js'
+	alertaProductoAgregado,
+	alertaProductoYaExiste,
+} from './SweetAlert/sweetAlert.js'
+import {
+	guardarLocalStorage,
+	buscarLocalStorage,
+} from './localStorage/helpers.js'
+import { borrarProd } from './localStorage/productos.js'
 const formulario = document.getElementById('formulario')
 const inputFoto = document.getElementById('foto')
 const previewImg = document.getElementById('preview')
-window.addEventListener('DOMContentLoaded', () => {
-	mostrarProd()
-	borrarProd()
-})
-
 const producto = {}
 /**
- * Listener para previsualizar la foto a cargar
+ * Listener para pre-visualizar la foto a cargar
  */
+window.addEventListener('DOMContentLoaded', () => {
+	mostrarProd()
+})
+/**
+ * @Info Método para mostrar el producto agregado bajo el formulario
+ * @Info Pagina Agregar Productos
+ */
+export const mostrarProd = () => {
+	const DbProductos = buscarLocalStorage('Productos')
+	if (!DbProductos.length) {
+		const stock = document.getElementById('stock')
+		stock.innerHTML = ''
+		const cardProducto = document.createElement('div')
+		cardProducto.classList.add('cardProducto')
+		cardProducto.innerHTML = `
+              <strong class="ListaVacia">Agrega Productos a la lista</strong>            
+  `
+		stock.append(cardProducto)
+	} else {
+		const stock = document.getElementById('stock')
+		stock.innerHTML = ''
+		DbProductos.forEach((prod) => {
+			const cardProducto = document.createElement('div')
+			cardProducto.classList.add('cardProducto')
+			cardProducto.innerHTML = `
+                  <button id=${
+										prod.ID
+									} title="Borrar Producto" class="btnBorrar" name="borrar"><i class="fa-solid fa-circle-xmark"></i></button>
+									<img class="imgProd" id="${
+										prod.foto || '../assets/productos/productoSinImagen.png'
+									}" src="${
+				prod.foto || '../assets/productos/productoSinImagen.png'
+			}" alt="${prod.nombre}" title="${prod.nombre}">
+									<p class="nombreProd" id="${prod.nombre}">${prod.nombre}</p>
+									<small class="detallesProd" id=${prod.detalles}>${prod.detalles}</small>
+									<small class="categoríaProd" id=${prod.categoría}>${prod.categoría}</small>
+									<strong class="precioProd" id="${prod.precio}">$ ${prod.precio}</strong>`
+			stock.append(cardProducto)
+		})
+	}
+	borrarProd()
+}
+
 inputFoto.addEventListener('change', () => {
 	let foto = inputFoto.files[0]
 	if (foto) {
@@ -37,54 +78,38 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault()
 	const inputNombre = document.getElementById('nombre').value
 	const inputPrecio = document.getElementById('precio').value
-	const inputDimensiones = document.getElementById('dimensiones').value
-	const inputCaracteristicas = document.getElementById('caracteristicas').value
-	producto.id = Date.now()
+	const inputDetalles = document.getElementById('Detalles').value
+	const inputCategoría = document.getElementById('Categoría').value
+	producto.ID = Date.now()
 	producto.nombre = inputNombre
 	producto.precio = inputPrecio
-	producto.dimensiones = inputDimensiones
-	producto.caracteristicas = inputCaracteristicas
-
-	const db = JSON.parse(localStorage.getItem('Productos'))
-
-	if (db) {
-		const filtro = db.filter(
+	producto.detalles = inputDetalles
+	producto.categoría = inputCategoría
+	const db = buscarLocalStorage('Productos')
+	if (db.length) {
+		const filtro = db.find(
 			(prod) => prod.nombre.toLowerCase() === inputNombre.toLowerCase()
 		)
-		if (filtro.length) {
-			let atencion = {
-				title: 'Atencion!',
-				text: 'Hay un producto con el mismo nombre. Pruebe con otro',
-				icon: 'info',
-				confirmButtonText: 'Ok',
-			}
-			alerta(atencion)
+		if (filtro) {
+			alertaProductoYaExiste()
 		} else {
-			guardarProducto(producto)
+			db.push(producto)
+			guardarLocalStorage('Productos', db)
 			e.target.reset()
 			previewImg.src =
 				'https://placehold.co/200/ffffff1e/000?text=Carga una imagen'
 			producto.foto = ''
-			let exito = {
-				title: 'Producto agregado!',
-				text: 'Su producto fue agregado con exito!',
-				icon: 'success',
-				confirmButtonText: 'Ok',
-			}
-			alerta(exito)
+			alertaProductoAgregado()
+			mostrarProd()
 		}
 	} else {
-		guardarProducto(producto)
+		db.push(producto)
+		guardarLocalStorage('Productos', db)
 		e.target.reset()
 		previewImg.src =
 			'https://placehold.co/200/ffffff1e/000?text=Carga una imagen'
 		producto.foto = ''
-		let exito = {
-			title: 'Producto agregado!',
-			text: 'Su producto fue agregado con exito!',
-			icon: 'success',
-			confirmButtonText: 'Ok',
-		}
-		alerta(exito)
+		alertaProductoAgregado()
+		mostrarProd()
 	}
 })

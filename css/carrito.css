@@ -18,23 +18,21 @@
 	gap: 1rem;
 }
 
-.hidden {
-	display: none;
-}
+
 .carrito h2 {
 	border-bottom: 1px solid white;
 }
 .carrito #cerrarCarrito {
 	position: absolute;
-	width: 2rem;
-	height: 2rem;
+	width: 1.5rem;
+	height: 1.5rem;
 	top: 2%;
 	right: 3%;
 	border: none;
-	background-color: rgb(255, 255, 255);
-	border-radius: 50%;
+	background-color: transparent;
 	z-index: 2;
 	transition: all 0.3s ease;
+	color: #ffffff;
 }
 .carrito #cerrarCarrito img {
 	width: 100%;
@@ -119,7 +117,6 @@
 	height: 5rem;
 	max-width: 700px;
 	gap: 0.5rem;
-	padding-right: 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -133,6 +130,7 @@
 	height: 100%;
 	aspect-ratio: 1/1;
 	border-radius: 0.5rem;
+	background-color: #ffffff;
 	object-fit: cover;
 }
 .prodCarrito strong {
@@ -168,19 +166,23 @@
 .restar:hover {
 	text-shadow: 1px 1px 10px white;
 }
-.prodCarrito button {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 0.5rem;
-	background-image: url('../assets/icons/trash.svg');
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: rgba(255, 0, 0, 0.637);
+.prodCarrito .btnBorrarDelCarrito {
+	background-color: transparent;
 	border: none;
+	width: 2rem;
+	height: 100%;
+	color: red;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding: .3rem;
+
 }
 .numTarjeta {
 	width: 20%;
 	margin: 0;
 	padding: 0;
+}
+.hidden {
+	display: none;
 }

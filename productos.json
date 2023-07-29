@@ -1,0 +1,244 @@
+{
+	"productos": [
+		{
+			"ID": 1,
+			"nombre": "Monitor ASUS 24 pulgadas",
+			"precio": 199.99,
+			"detalles": "Resolución Full HD, 75Hz de frecuencia de actualización",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-ASUS-24-pulgadas.webp"
+		},
+		{
+			"ID": 2,
+			"nombre": "Monitor Dell 27 pulgadas",
+			"precio": 249.5,
+			"detalles": "Resolución QHD, diseño sin bordes",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-Dell-27-pulgadas.webp"
+		},
+		{
+			"ID": 3,
+			"nombre": "Monitor LG Ultrawide 34 pulgadas",
+			"precio": 449.0,
+			"detalles": "Resolución UWQHD, relación de aspecto 21:9",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-LG-Ultrawide-34-pulgadas.webp"
+		},
+		{
+			"ID": 4,
+			"nombre": "Monitor Samsung Curvo 32 pulgadas",
+			"precio": 299.99,
+			"detalles": "Resolución 4K UHD, curvatura 1500R",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-Samsung-Curvo-32-pulgadas.webp"
+		},
+		{
+			"ID": 5,
+			"nombre": "Monitor HP 27 pulgadas",
+			"precio": 179.0,
+			"detalles": "Resolución Full HD, tecnología IPS",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-HP-27-pulgadas.webp"
+		},
+		{
+			"ID": 6,
+			"nombre": "Monitor BenQ 25 pulgadas",
+			"precio": 179.99,
+			"detalles": "Resolución 2K, tecnología Eye-Care",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-BenQ-25-pulgadas.webp"
+		},
+		{
+			"ID": 7,
+			"nombre": "Monitor Acer 23.8 pulgadas",
+			"precio": 129.95,
+			"detalles": "Resolución Full HD, diseño delgado",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-Acer-23-8-pulgadas.webp"
+		},
+		{
+			"ID": 8,
+			"nombre": "Monitor ViewSonic 27 pulgadas",
+			"precio": 219.0,
+			"detalles": "Resolución QHD, tecnología SuperClear",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-ViewSonic-27-pulgadas.webp"
+		},
+		{
+			"ID": 9,
+			"nombre": "Monitor AOC Gaming 24 pulgadas",
+			"precio": 279.5,
+			"detalles": "Resolución Full HD, frecuencia de actualización 144Hz",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-AOC-Gaming-24-pulgadas.webp"
+		},
+		{
+			"ID": 10,
+			"nombre": "Monitor Philips 32 pulgadas",
+			"precio": 299.0,
+			"detalles": "Resolución 4K UHD, tecnología Ultra Wide-Color",
+			"categoría": "Monitores",
+			"foto": "./assets/productos/Monitor-Philips-32-pulgadas.webp"
+		},
+		{
+			"ID": 11,
+			"nombre": "Notebook Lenovo ThinkPad X1 Carbon",
+			"precio": 1599.99,
+			"detalles": "Procesador Intel Core i7, 16GB RAM, 512GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-Lenovo-ThinkPad-X1-Carbon.webp"
+		},
+		{
+			"ID": 12,
+			"nombre": "Notebook Dell XPS 15",
+			"precio": 1899.5,
+			"detalles": "Procesador Intel Core i9, 32GB RAM, 1TB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-Dell-XPS-15.webp"
+		},
+		{
+			"ID": 13,
+			"nombre": "Notebook HP Spectre x360",
+			"precio": 1299.0,
+			"detalles": "Pantalla táctil 2-en-1, 8GB RAM, 256GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-HP-Spectre-x360.webp"
+		},
+		{
+			"ID": 14,
+			"nombre": "Notebook ASUS ZenBook 14",
+			"precio": 999.99,
+			"detalles": "Procesador AMD Ryzen 7, 16GB RAM, 512GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-ASUS-ZenBook-14.webp"
+		},
+		{
+			"ID": 15,
+			"nombre": "Notebook MacBook Pro 13",
+			"precio": 1799.0,
+			"detalles": "Procesador Apple M1, 8GB RAM, 512GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-MacBook-Pro-13.webp"
+		},
+		{
+			"ID": 16,
+			"nombre": "Notebook Microsoft Surface Laptop 4",
+			"precio": 1299.5,
+			"detalles": "Procesador AMD Ryzen 5, 16GB RAM, 256GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-Microsoft-Surface-Laptop-4.webp"
+		},
+		{
+			"ID": 17,
+			"nombre": "Notebook Acer Swift 5",
+			"precio": 899.95,
+			"detalles": "Procesador Intel Core i5, 8GB RAM, 512GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-Acer-Swift-5.webp"
+		},
+		{
+			"ID": 18,
+			"nombre": "Notebook Razer Blade 15",
+			"precio": 2199.0,
+			"detalles": "Procesador Intel Core i7, 32GB RAM, 1TB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-Razer-Blade-15.webp"
+		},
+		{
+			"ID": 19,
+			"nombre": "Notebook LG Gram 17",
+			"precio": 1599.5,
+			"detalles": "Pantalla de 17 pulgadas, 16GB RAM, 512GB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-LG-Gram-17.webp"
+		},
+		{
+			"ID": 20,
+			"nombre": "Notebook MSI Creator 17",
+			"precio": 2499.0,
+			"detalles": "Pantalla 4K Mini LED, Procesador Intel Core i9, 64GB RAM, 2TB SSD",
+			"categoría": "Notebooks",
+			"foto": "./assets/productos/Notebook-MSI-Creator-17.webp"
+		},
+		{
+			"ID": 21,
+			"nombre": "iPhone 14",
+			"precio": 1199.99,
+			"detalles": "Pantalla OLED de 6.1 pulgadas, 128GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/iPhone-14.webp"
+		},
+		{
+			"ID": 22,
+			"nombre": "Samsung Galaxy S22",
+			"precio": 999.5,
+			"detalles": "Pantalla AMOLED de 6.2 pulgadas, 256GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Samsung-Galaxy-S22.webp"
+		},
+		{
+			"ID": 23,
+			"nombre": "Google Pixel 6",
+			"precio": 899.0,
+			"detalles": "Pantalla OLED de 6.4 pulgadas, 128GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Google-Pixel-6.webp"
+		},
+		{
+			"ID": 24,
+			"nombre": "OnePlus 9T",
+			"precio": 799.99,
+			"detalles": "Pantalla Fluid AMOLED de 6.55 pulgadas, 256GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/OnePlus-9T.webp"
+		},
+		{
+			"ID": 25,
+			"nombre": "Xiaomi Mi 12",
+			"precio": 899.0,
+			"detalles": "Pantalla AMOLED de 6.81 pulgadas, 256GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Xiaomi-Mi-12.webp"
+		},
+		{
+			"ID": 26,
+			"nombre": "Sony Xperia 1 III",
+			"precio": 1099.5,
+			"detalles": "Pantalla OLED de 6.5 pulgadas, 256GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Sony-Xperia-1-III.webp"
+		},
+		{
+			"ID": 27,
+			"nombre": "Motorola Edge 30",
+			"precio": 699.95,
+			"detalles": "Pantalla OLED de 6.7 pulgadas, 128GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Motorola-Edge-30.webp"
+		},
+		{
+			"ID": 28,
+			"nombre": "Realme GT 2",
+			"precio": 799.0,
+			"detalles": "Pantalla AMOLED de 6.43 pulgadas, 256GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Realme-GT-2.webp"
+		},
+		{
+			"ID": 29,
+			"nombre": "Vivo X80 Pro",
+			"precio": 899.5,
+			"detalles": "Pantalla AMOLED de 6.8 pulgadas, 128GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Vivo-X80-Pro.webp"
+		},
+		{
+			"ID": 30,
+			"nombre": "Oppo Find X5",
+			"precio": 999.0,
+			"detalles": "Pantalla OLED de 6.7 pulgadas, 256GB almacenamiento",
+			"categoría": "Celulares",
+			"foto": "./assets/productos/Oppo-Find-X5.webp"
+		}
+	]
+}

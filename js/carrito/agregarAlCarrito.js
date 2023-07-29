@@ -1,4 +1,7 @@
-import { alertaProductoEnCarrito } from '../SweetAlert/sweetAlert.js'
+import {
+	alertaAgregadoEnCarrito,
+	alertaProductoEnCarrito,
+} from '../SweetAlert/sweetAlert.js'
 import {
 	buscarLocalStorage,
 	guardarLocalStorage,
@@ -6,18 +9,18 @@ import {
 import { carritoLength } from './carrito.js'
 
 const crearProdParaCarrito = (event) => {
+	const id = event.currentTarget.id
+	const card = event.currentTarget.parentElement
+	const foto = card.querySelector('.imgProd').id
+	const nombre = card.querySelector('.nombreProd').id
+	const precio = card.querySelector('.precioProd').id
 	const btnCarrito = document.querySelector('#btnCarrito')
 	btnCarrito.children[0].classList.add('animate__bounce')
 	setTimeout(() => {
 		btnCarrito.children[0].classList.remove('animate__bounce')
 	}, 1000)
-	let foto = event.target.parentElement.children[0].src
-	let nombre = event.target.parentElement.children[1].textContent
-	let precio = parseFloat(
-		event.target.parentElement.children[4].textContent.split(' ')[1]
-	)
 	const prodCarrito = {
-		id: Date.now(),
+		id: id,
 		nombre: nombre,
 		foto: foto,
 		precio: precio,
@@ -25,22 +28,24 @@ const crearProdParaCarrito = (event) => {
 	}
 	return prodCarrito
 }
-export const agregarAlCarrito = (e) => {
-	if (e.target.className == 'btnAgregar') {
-		const db = buscarLocalStorage('carrito')
-		const producto = crearProdParaCarrito(e)
-		if (db.length) {
-			const filtro = db.filter((prod) => prod.nombre === producto.nombre)
-			if (filtro.length) {
-				alertaProductoEnCarrito()
-			} else {
-				db.push(producto)
-				guardarLocalStorage('carrito', db)
-				carritoLength()
-			}
+
+export const agregarAlCarrito = (event) => {
+	const id = event.currentTarget.id
+	const db = buscarLocalStorage('carrito')
+	const producto = crearProdParaCarrito(event)
+	if (db.length) {
+		const filtro = db.find((prod) => parseInt(prod.id) === parseInt(id))
+		if (filtro) {
+			alertaProductoEnCarrito()
 		} else {
-			guardarLocalStorage('carrito', [producto])
+			db.push(producto)
+			guardarLocalStorage('carrito', db)
 			carritoLength()
+			alertaAgregadoEnCarrito()
 		}
+	} else {
+		guardarLocalStorage('carrito', [producto])
+		carritoLength()
+		alertaAgregadoEnCarrito()
 	}
 }

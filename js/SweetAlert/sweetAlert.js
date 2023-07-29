@@ -1,4 +1,7 @@
 ////////		USUARIO     ////////////
+/* global Swal*/
+/* global dcodeIO*/
+
 export const alertaUserEnUso = () => {
 	return Swal.fire({
 		title: 'El nombre de usuarios ya esta en uso',
@@ -11,7 +14,7 @@ export const alertaUserEnUso = () => {
 export const alertaBienvenidaRegistro = (userName) => {
 	return Swal.fire({
 		title: `Bienvenido ${userName}`,
-		text: `Ahora inicia sesion`,
+		text: `Ahora inicia sesión`,
 		icon: 'success',
 		confirmButtonText: 'Aceptar',
 		background: `rgba(0,0,0,.9)`,
@@ -39,10 +42,10 @@ export const alertaRegistro = () => {
 }
 export const alertaLogin = () => {
 	return Swal.fire({
-		title: 'Iniciar Sesion',
+		title: 'Iniciar Sesión',
 		html: `<input type="email" id="usuario" class="swal2-input" placeholder="Email">
     <input type="password" required id="password" class="swal2-input" placeholder="Contraseña">`,
-		confirmButtonText: 'Iniciar Sesion',
+		confirmButtonText: 'Iniciar Sesión',
 		focusConfirm: false,
 		background: `rgba(0,0,0,.9)`,
 		color: 'rgba(255,255,255,.9)',
@@ -77,17 +80,17 @@ export const alertaFallaLogin = () => {
 export const alertaLoginAdmin = (userName) => {
 	return Swal.fire({
 		title: `Bienvenido ${userName}`,
-		text: 'Ahora podra agregar productos nuevos al stock desde el menu',
-		footer: '<a href="/pages/agregarProducto.html">O has click aqui</a>',
+		text: 'Ahora podrá agregar productos nuevos al stock desde el menu',
+		footer: '<a href="/pages/agregarProducto.html">O has click aquí</a>',
 		icon: 'success',
 		confirmButtonText: 'Aceptar',
 		background: `rgba(0,0,0,.9)`,
 		color: 'rgba(255,255,255,.9)',
 	})
 }
-export const alertaCerrarSesion = () => {
+export const alertaCerrarSesión = () => {
 	return Swal.fire({
-		title: 'Desea cerrar su sesion?',
+		title: 'Desea cerrar su Sesión?',
 		icon: 'warning',
 		confirmButtonText: 'Aceptar',
 		showCancelButton: true,
@@ -108,11 +111,55 @@ export const alertaEliminarCuenta = () => {
 	})
 }
 ////////		USUARIO     ////////////
+////////		AGREGAR PRODUCTOS     ////////////
+export const alertaProductoYaExiste = () => {
+	return Swal.fire({
+		title: 'Atención!',
+		text: 'Hay un producto con el mismo nombre. Pruebe con otro',
+		icon: 'info',
+		confirmButtonText: 'Ok',
+		background: `rgba(0,0,0,.9)`,
+		color: 'rgba(255,255,255,.9)',
+	})
+}
+export const alertaEliminarProducto = () => {
+	return Swal.fire({
+		title: 'Esta por eliminar un producto!',
+		text: 'Desea eliminar el producto',
+		showCancelButton: true,
+		confirmButtonText: 'Aceptar',
+		cancelButtonText: 'Cancelar',
+		background: `rgba(0,0,0,.9)`,
+		color: 'rgba(255,255,255,.9)',
+	})
+}
+export const alertaProductoAgregado = () => {
+	return Swal.fire({
+		title: 'Producto agregado!',
+		text: 'Su producto fue agregado con éxito!',
+		icon: 'success',
+		confirmButtonText: 'Ok',
+		background: `rgba(0,0,0,.9)`,
+		color: 'rgba(255,255,255,.9)',
+	})
+}
+////////		AGREGAR PRODUCTOS     ////////////
 ////////		CARRITO     ////////////
+export const alertaAgregadoEnCarrito = () => {
+	return Swal.fire({
+		text: 'Producto agregado al carrito',
+		icon: 'success',
+		toast: true,
+		timer: 2000,
+		position: 'top',
+		timerProgressBar: true,
+		showConfirmButton: false,
+	})
+}
 export const alertaEliminarProdCarrito = () => {
 	return Swal.fire({
 		title: 'Esta por eliminar un producto!',
-		text: 'Desea elimiinar el producto del carrito',
+		text: 'Desea eliminar el producto del carrito',
 		showCancelButton: true,
 		confirmButtonText: 'Aceptar',
 		cancelButtonText: 'Cancelar',
@@ -146,7 +193,7 @@ export const alertaVaciarCarrito = () => {
 export const alertaTarjeta = (user) => {
 	return Swal.fire({
 		title: 'Ingrese el numero de su tarjeta',
-		html: `<p>16 Digitos</p>
+		html: `<p><i class="fa-solid fa-credit-card"></i></p>
 							<input type="number" id="num1" class="swal2-input numTarjeta" onKeyPress="if(this.value.length==4) return false;"> -
 							<input type="number" id="num2" class="swal2-input numTarjeta" onKeyPress="if(this.value.length==4) return false;"> -
 							<input type="number" id="num3" class="swal2-input numTarjeta" onKeyPress="if(this.value.length==4) return false;"> -
@@ -171,7 +218,7 @@ export const alertaTarjeta = (user) => {
 				!cardNum4 ||
 				cardNum4.length != 4
 			) {
-				Swal.showValidationMessage(`Cada campo debe contener de 4 Digitos`)
+				Swal.showValidationMessage(`Cada campo debe contener de 4 Dígitos`)
 			}
 			const salt = dcodeIO.bcrypt.genSaltSync(10)
 			const card2 = dcodeIO.bcrypt.hashSync(cardNum2, salt)
@@ -205,9 +252,9 @@ export const alertaConfirmarCompra = (user, total) => {
 		color: 'rgba(255,255,255,.9)',
 	})
 }
-export const alertaDebeIniciarSesion = () => {
+export const alertaDebeIniciarSesión = () => {
 	return Swal.fire({
-		title: 'Debe Iniciar Sesion Para Continuar',
+		title: 'Debe Iniciar Sesión Para Continuar',
 		icon: 'info',
 		confirmButtonText: 'Aceptar',
 		background: `rgba(0,0,0,.9)`,

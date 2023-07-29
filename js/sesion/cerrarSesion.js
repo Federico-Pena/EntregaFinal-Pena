@@ -1,4 +1,4 @@
-import { alertaCerrarSesion } from '../SweetAlert/sweetAlert.js'
+import { alertaCerrarSesión } from '../SweetAlert/sweetAlert.js'
 import { carritoLength } from '../carrito/carrito.js'
 import {
 	borrarLocalStorage,
@@ -6,7 +6,7 @@ import {
 } from '../localStorage/helpers.js'
 
 export const cerrarSesion = async () => {
-	const result = await alertaCerrarSesion()
+	const result = await alertaCerrarSesión()
 	if (result.isConfirmed == true) {
 		borrarLocalStorage('userActive')
 		document.querySelector('.logout').classList.add('hidden')

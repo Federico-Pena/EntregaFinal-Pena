@@ -1,3 +1,5 @@
+/* global dcodeIO*/
+
 import {
 	buscarLocalStorage,
 	guardarLocalStorage,
