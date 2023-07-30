@@ -11,6 +11,7 @@ import { calcularCantidad } from './calcularCantidad.js'
 // Listener para cerrar y animar el cierre del carrito
 const cerrarCarrito = document.getElementById('cerrarCarrito')
 cerrarCarrito.addEventListener('click', animCerrarCarrito)
+
 // Listener para abrir y animar el carrito
 const abrirCarrito = document.getElementById('btnCarrito')
 abrirCarrito.addEventListener('click', () => {

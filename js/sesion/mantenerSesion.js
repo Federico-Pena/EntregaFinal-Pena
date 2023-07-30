@@ -1,7 +1,7 @@
 import { buscarLocalStorage } from '../localStorage/helpers.js'
 
 /**
- * Funcion para mantener activa la sesion si no se cierra manuelmente
+ * Función para mantener activa la sesión si no se cierra manualmente
  */
 export function mantenerSesion() {
 	const userActive = buscarLocalStorage('userActive')

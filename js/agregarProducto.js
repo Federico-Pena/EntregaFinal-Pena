@@ -69,9 +69,9 @@ export const mostrarProd = () => {
 			smallCategoría.appendChild(smallCategoríaText)
 			/* Precio */
 			let precio = document.createElement('strong')
-			let precioText = document.createTextNode(prod.precio)
+			let precioText = document.createTextNode(`$ ${prod.precio}`)
 			precio.classList.add('precioProd')
-			precio.setAttribute('id', `${prod.precio}`)
+			precio.setAttribute('id', prod.precio)
 			precio.appendChild(precioText)
 			/* Botón */
 			let buttonAgregar = document.createElement('button')

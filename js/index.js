@@ -134,7 +134,10 @@ export const filtros = async () => {
 	const filtradas = new Set(cat)
 	filtradas.forEach((categoría) => {
 		const botón = document.createElement('button')
+		botón.setAttribute('title', categoría)
+
 		botón.classList.add('btnFiltroCategoría')
+		botón.setAttribute('title', categoría)
 		let buttonText = document.createTextNode(categoría)
 		botón.append(buttonText)
 		botón.addEventListener('click', filtrarCategoría)
@@ -142,6 +145,8 @@ export const filtros = async () => {
 	})
 	const botónCerrar = document.createElement('button')
 	botónCerrar.classList.add('botónCerrarCategoría')
+	botónCerrar.setAttribute('title', 'Borrar Filtros')
+
 	const botónIcono = document.createElement('i')
 	botónIcono.classList.add('fa-solid')
 	botónIcono.classList.add('fa-x')
