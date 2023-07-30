@@ -27,6 +27,7 @@ export async function comprar(e) {
 			})
 			const dbUsers = buscarLocalStorage('usuarios')
 			if (dbUsers.length) {
+				btnComprar.innerHTML = `<div class="custom-loader"></div>`
 				const userActive = buscarLocalStorage('userActive')
 				const userMatch = dbUsers.find((user) => {
 					const decryptedUsername = user.user === userActive
@@ -35,7 +36,6 @@ export async function comprar(e) {
 				if (userMatch) {
 					if (userMatch.tarjeta === '') {
 						const res = await alertaTarjeta(userMatch)
-						btnComprar.innerHTML = `Comprar`
 
 						if (res.isConfirmed == true) {
 							const filterUsers = dbUsers.filter(
@@ -55,7 +55,6 @@ export async function comprar(e) {
 						}
 					} else {
 						const res = await alertaConfirmarCompra(userMatch, total)
-						btnComprar.innerHTML = `Comprar`
 
 						if (res.isConfirmed) {
 							alertaGraciasPorSuCompra()
@@ -69,6 +68,16 @@ export async function comprar(e) {
 							}, 1000)
 						}
 					}
+				} else {
+					if (userActive === 'admin') {
+						alertaDebeIniciarSesión()
+					}
+				}
+			} else {
+				btnComprar.innerHTML = `<div class="custom-loader"></div>`
+
+				if (userActive === 'admin') {
+					alertaDebeIniciarSesión()
 				}
 			}
 		}
@@ -80,4 +89,5 @@ export async function comprar(e) {
 			alertaDebeIniciarSesión()
 		}
 	}
+	btnComprar.innerHTML = `Comprar`
 }

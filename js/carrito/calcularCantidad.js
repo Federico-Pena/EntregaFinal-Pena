@@ -16,34 +16,45 @@ export function calcularCantidad() {
 
 const restarCantidad = (prod) => {
 	let cantidad = prod.querySelector('.cantidad')
-	const id = parseInt(prod.querySelector('.btnBorrarDelCarrito').id)
+	const id = prod.querySelector('.btnBorrarDelCarrito').id
 	const carritoDB = buscarLocalStorage('carrito')
 	if (parseInt(cantidad.textContent) < 2) {
-		const producto = carritoDB.find((prod) => parseInt(prod.id) === id)
+		const producto = carritoDB.find(
+			(prod) => parseInt(prod.id) === parseInt(id)
+		)
 		cantidad.textContent = 1
 		producto.cantidad = 1
-		const productos = carritoDB.filter((prod) => parseInt(prod.id) !== id)
+		const productos = carritoDB.filter(
+			(prod) => parseInt(prod.id) !== parseInt(id)
+		)
 		productos.push(producto)
 		guardarLocalStorage('carrito', productos)
 		calcularTotal()
 	} else {
-		const producto = carritoDB.find((prod) => parseInt(prod.id) === id)
+		const producto = carritoDB.find(
+			(prod) => parseInt(prod.id) === parseInt(id)
+		)
 		cantidad.textContent--
 		producto.cantidad--
-		const productos = carritoDB.filter((prod) => parseInt(prod.id) !== id)
+		const productos = carritoDB.filter(
+			(prod) => parseInt(prod.id) !== parseInt(id)
+		)
 		productos.push(producto)
 		guardarLocalStorage('carrito', productos)
 		calcularTotal()
 	}
 }
+
 const sumarCantidad = (prod) => {
 	const carritoDB = buscarLocalStorage('carrito')
 	let cantidad = prod.querySelector('.cantidad')
-	const id = parseInt(prod.querySelector('.btnBorrarDelCarrito').id)
-	const producto = carritoDB.find((prod) => parseInt(prod.id) === id)
+	const id = prod.querySelector('.btnBorrarDelCarrito').id
+	const producto = carritoDB.find((prod) => parseInt(prod.id) === parseInt(id))
 	cantidad.textContent++
 	producto.cantidad++
-	const productos = carritoDB.filter((prod) => parseInt(prod.id) !== id)
+	const productos = carritoDB.filter(
+		(prod) => parseInt(prod.id) !== parseInt(id)
+	)
 	productos.push(producto)
 	guardarLocalStorage('carrito', productos)
 	calcularTotal()

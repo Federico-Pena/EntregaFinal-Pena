@@ -28,9 +28,13 @@ export const mostrarProd = () => {
 		stock.innerHTML = ''
 		const cardProducto = document.createElement('div')
 		cardProducto.classList.add('cardProducto')
-		cardProducto.innerHTML = `
-              <strong class="ListaVacia">Agrega Productos a la lista</strong>            
-  `
+		const ListaVacia = document.createElement('strong')
+		ListaVacia.classList.add('ListaVacia')
+		const ListaVaciaText = document.createTextNode(
+			'Agrega Productos a la lista'
+		)
+		ListaVacia.appendChild(ListaVaciaText)
+		cardProducto.append(ListaVacia)
 		stock.append(cardProducto)
 	} else {
 		const stock = document.getElementById('stock')
@@ -38,19 +42,54 @@ export const mostrarProd = () => {
 		DbProductos.forEach((prod) => {
 			const cardProducto = document.createElement('div')
 			cardProducto.classList.add('cardProducto')
-			cardProducto.innerHTML = `
-                  <button id=${
-										prod.ID
-									} title="Borrar Producto" class="btnBorrar" name="borrar"><i class="fa-solid fa-circle-xmark"></i></button>
-									<img class="imgProd" id="${
-										prod.foto || '../assets/productos/productoSinImagen.png'
-									}" src="${
-				prod.foto || '../assets/productos/productoSinImagen.png'
-			}" alt="${prod.nombre}" title="${prod.nombre}">
-									<p class="nombreProd" id="${prod.nombre}">${prod.nombre}</p>
-									<small class="detallesProd" id=${prod.detalles}>${prod.detalles}</small>
-									<small class="categoríaProd" id=${prod.categoría}>${prod.categoría}</small>
-									<strong class="precioProd" id="${prod.precio}">$ ${prod.precio}</strong>`
+			/* Imagen */
+			let imagen = document.createElement('img')
+			imagen.classList.add('imgProd')
+			imagen.setAttribute(
+				'id',
+				`${prod.foto || '../assets/productos/productoSinImagen.png'}`
+			)
+			imagen.setAttribute(
+				'src',
+				`${prod.foto || '../assets/productos/productoSinImagen.png'}`
+			)
+			imagen.setAttribute('alt', `${prod.nombre}`)
+			imagen.setAttribute('title', `${prod.nombre}`)
+			/* Nombre */
+			let nombre = document.createElement('p')
+			let nombreText = document.createTextNode(prod.nombre)
+			nombre.appendChild(nombreText)
+			/* Detalles */
+			let smallDetalles = document.createElement('small')
+			let smallDetallesText = document.createTextNode(prod.detalles)
+			smallDetalles.appendChild(smallDetallesText)
+			/* Categoría */
+			let smallCategoría = document.createElement('small')
+			let smallCategoríaText = document.createTextNode(prod.categoría)
+			smallCategoría.appendChild(smallCategoríaText)
+			/* Precio */
+			let precio = document.createElement('strong')
+			let precioText = document.createTextNode(prod.precio)
+			precio.classList.add('precioProd')
+			precio.setAttribute('id', `${prod.precio}`)
+			precio.appendChild(precioText)
+			/* Botón */
+			let buttonAgregar = document.createElement('button')
+			buttonAgregar.classList.add('btnBorrar')
+			buttonAgregar.setAttribute('id', `${prod.ID}`)
+			buttonAgregar.setAttribute('title', `Borrar Producto`)
+			let icono = document.createElement('i')
+			icono.classList.add('fa-solid')
+			icono.classList.add('fa-circle-xmark')
+			buttonAgregar.appendChild(icono)
+			/* Card */
+			cardProducto.appendChild(imagen)
+			cardProducto.appendChild(nombre)
+			cardProducto.appendChild(smallDetalles)
+			cardProducto.appendChild(smallCategoría)
+			cardProducto.appendChild(precio)
+			cardProducto.appendChild(buttonAgregar)
+
 			stock.append(cardProducto)
 		})
 	}
@@ -76,6 +115,7 @@ inputFoto.addEventListener('change', () => {
  */
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault()
+	const db = buscarLocalStorage('Productos')
 	const inputNombre = document.getElementById('nombre').value
 	const inputPrecio = document.getElementById('precio').value
 	const inputDetalles = document.getElementById('Detalles').value
@@ -85,7 +125,6 @@ formulario.addEventListener('submit', (e) => {
 	producto.precio = inputPrecio
 	producto.detalles = inputDetalles
 	producto.categoría = inputCategoría
-	const db = buscarLocalStorage('Productos')
 	if (db.length) {
 		const filtro = db.find(
 			(prod) => prod.nombre.toLowerCase() === inputNombre.toLowerCase()
@@ -96,8 +135,7 @@ formulario.addEventListener('submit', (e) => {
 			db.push(producto)
 			guardarLocalStorage('Productos', db)
 			e.target.reset()
-			previewImg.src =
-				'https://placehold.co/200/ffffff1e/000?text=Carga una imagen'
+			previewImg.src = 'https://placehold.co/200/ffffff1e/000?text=Vista+Previa'
 			producto.foto = ''
 			alertaProductoAgregado()
 			mostrarProd()
@@ -106,8 +144,7 @@ formulario.addEventListener('submit', (e) => {
 		db.push(producto)
 		guardarLocalStorage('Productos', db)
 		e.target.reset()
-		previewImg.src =
-			'https://placehold.co/200/ffffff1e/000?text=Carga una imagen'
+		previewImg.src = 'https://placehold.co/200/ffffff1e/000?text=Vista+Previa'
 		producto.foto = ''
 		alertaProductoAgregado()
 		mostrarProd()

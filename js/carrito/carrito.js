@@ -48,29 +48,74 @@ export function mostrarProdCarrito() {
 			const producto = document.createElement('div')
 			producto.classList.add('prodCarrito')
 			producto.classList.add('animate__animated')
-			producto.innerHTML = `
-                    <img class="prodFoto" id=${prod.foto} src=${
-				prod.foto
-			} alt=${prod.nombre}>
-                    <p class="prodNombre" id=${prod.nombre}>${prod.nombre}</p>
-                    <strong class="prodPrecio" id=${prod.precio}>$ ${
-				prod.precio
-			}</strong>  
-                    <span class="restar">-</span>
-                    <strong  id=${prod.cantidad} class="cantidad">${
-				prod.cantidad || 1
-			}</strong>
-                    <span class="sumar">+</span>
-                    <button id=${
-											prod.id
-										} class="btnBorrarDelCarrito"><i class="fa-solid fa-circle-xmark"></i></button>                          
-        `
+			/* Imagen */
+			let imagen = document.createElement('img')
+			imagen.classList.add('prodFoto')
+			imagen.setAttribute('id', prod.foto)
+			imagen.setAttribute('src', prod.foto)
+			imagen.setAttribute('alt', prod.nombre)
+			imagen.setAttribute('title', prod.nombre)
+
+			/* Nombre */
+			let nombre = document.createElement('p')
+			nombre.classList.add('prodNombre')
+			nombre.setAttribute('id', prod.nombre)
+			let nombreText = document.createTextNode(prod.nombre)
+			nombre.appendChild(nombreText)
+
+			/* Precio */
+			let precio = document.createElement('strong')
+			let precioText = document.createTextNode(`$ ${prod.precio}`)
+			precio.classList.add('prodPrecio')
+			precio.setAttribute('id', `${prod.precio}`)
+			precio.appendChild(precioText)
+
+			/* Restar */
+			let spanRestar = document.createElement('span')
+			spanRestar.classList.add('restar')
+			let spanRestarText = document.createTextNode('-')
+			spanRestar.appendChild(spanRestarText)
+
+			/* cantidad */
+			let cantidad = document.createElement('strong')
+			cantidad.classList.add('cantidad')
+			cantidad.setAttribute('id', `${prod.cantidad}`)
+			let cantidadText = document.createTextNode(prod.cantidad || 1)
+			cantidad.appendChild(cantidadText)
+
+			/* Sumar */
+			let spanSumar = document.createElement('span')
+			spanSumar.classList.add('sumar')
+			let spanSumarText = document.createTextNode('+')
+			spanSumar.appendChild(spanSumarText)
+
+			/* Botón */
+			let buttonBorrar = document.createElement('button')
+			buttonBorrar.classList.add('btnBorrarDelCarrito')
+			buttonBorrar.setAttribute('id', prod.id)
+			buttonBorrar.setAttribute('title', `Borrar del carrito ${prod.nombre}`)
+			let icono = document.createElement('i')
+			icono.classList.add('fa-solid')
+			icono.classList.add('fa-circle-xmark')
+			buttonBorrar.appendChild(icono)
+			/* Card */
+			producto.appendChild(imagen)
+			producto.appendChild(nombre)
+			producto.appendChild(precio)
+			producto.appendChild(spanRestar)
+			producto.appendChild(cantidad)
+			producto.appendChild(spanSumar)
+			producto.appendChild(buttonBorrar)
 			divCarrito.appendChild(producto)
 		})
 	} else {
-		divCarrito.innerHTML = `
-      <img class="carritoimg" src="../assets/carritoVacio.png" alt="carrito Vacío">          
-  `
+		divCarrito.innerHTML = ''
+		let imagen = document.createElement('img')
+		imagen.classList.add('carritoimg')
+		imagen.setAttribute('src', '../assets/carritoVacio.png')
+		imagen.setAttribute('alt', 'carrito Vacío')
+		imagen.setAttribute('title', 'Imagen de carrito Vacío')
+		divCarrito.append(imagen)
 	}
 }
 // Función para mostrar la cantidad de productos en el carrito

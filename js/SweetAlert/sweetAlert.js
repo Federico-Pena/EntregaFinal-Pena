@@ -12,7 +12,7 @@ export const alertaUserEnUso = () => {
 		timerProgressBar: true,
 		showConfirmButton: false,
 		background: `#f27474`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaBienvenidaRegistro = (userName) => {
@@ -25,7 +25,7 @@ export const alertaBienvenidaRegistro = (userName) => {
 		timerProgressBar: true,
 		showConfirmButton: false,
 		background: `#a5dc86`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaBienvenidaLogin = (userName) => {
@@ -38,7 +38,7 @@ export const alertaBienvenidaLogin = (userName) => {
 		timerProgressBar: true,
 		showConfirmButton: false,
 		background: `#a5dc86`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaFallaLogin = () => {
@@ -51,7 +51,7 @@ export const alertaFallaLogin = () => {
 		timerProgressBar: true,
 		showConfirmButton: false,
 		background: `#f27474`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaRegistro = () => {
@@ -59,8 +59,8 @@ export const alertaRegistro = () => {
 		title: 'Registrarse',
 		html: `	
 		<form>
-		<input type="email" required id="usuario" class="swal2-input" placeholder="Email">
-  	<input type="password" required id="password" class="swal2-input" placeholder="Contraseña">
+		<input type="email" autocomplete="off" required id="usuario" class="swal2-input" placeholder="Email">
+  	<input type="password" autocomplete="off" required id="password" class="swal2-input" placeholder="Contraseña">
 	</form>`,
 		confirmButtonText: 'Registrarse',
 		focusConfirm: true,
@@ -81,8 +81,8 @@ export const alertaLogin = () => {
 	return Swal.fire({
 		title: 'Iniciar Sesión',
 		html: `<form> 
-		<input type="email" id="usuario" class="swal2-input" placeholder="Email">
-    <input type="password" required id="password" class="swal2-input" placeholder="Contraseña"> 
+		<input type="email" autocomplete="off" id="usuario" class="swal2-input" placeholder="Email">
+    <input type="password" autocomplete="off" required id="password" class="swal2-input" placeholder="Contraseña"> 
 		</form>`,
 		confirmButtonText: 'Iniciar Sesión',
 		allowEnterKey: true,
@@ -109,7 +109,7 @@ export const alertaLoginAdmin = (userName) => {
 		icon: 'success',
 		confirmButtonText: 'Aceptar',
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaCerrarSesión = () => {
@@ -133,7 +133,7 @@ export const alertaEliminarCuenta = () => {
 		confirmButtonText: 'Aceptar',
 		cancelButtonText: 'Cancelar',
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 ////////		USUARIO     ////////////
@@ -146,7 +146,7 @@ export const alertaProductoYaExiste = () => {
 		icon: 'info',
 		confirmButtonText: 'Ok',
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaEliminarProducto = () => {
@@ -159,18 +159,20 @@ export const alertaEliminarProducto = () => {
 		confirmButtonText: 'Aceptar',
 		cancelButtonText: 'Cancelar',
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaProductoAgregado = () => {
 	return Swal.fire({
 		title: 'Producto agregado!',
-		text: 'Su producto fue agregado con éxito!',
 		iconColor: 'white',
 		icon: 'success',
-		confirmButtonText: 'Ok',
+		toast: true,
+		timer: 2500,
+		timerProgressBar: true,
+		showConfirmButton: false,
 		background: `#a5dc86`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 ////////		AGREGAR PRODUCTOS     ////////////
@@ -181,12 +183,12 @@ export const alertaAgregadoEnCarrito = () => {
 		iconColor: 'white',
 		icon: 'success',
 		toast: true,
-		position: 'top',
+		position: 'top-start',
 		timer: 2500,
 		timerProgressBar: true,
 		showConfirmButton: false,
 		background: `#a5dc86`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaProductoEnCarrito = () => {
@@ -195,12 +197,12 @@ export const alertaProductoEnCarrito = () => {
 		iconColor: 'white',
 		icon: 'info',
 		toast: true,
-		timer: 25000,
-		position: 'top',
+		timer: 2500,
+		position: 'top-start',
 		timerProgressBar: true,
 		showConfirmButton: false,
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaEliminarProdCarrito = () => {
@@ -213,7 +215,7 @@ export const alertaEliminarProdCarrito = () => {
 		confirmButtonText: 'Aceptar',
 		cancelButtonText: 'Cancelar',
 		background: `#87adbd`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 
@@ -227,7 +229,7 @@ export const alertaVaciarCarrito = () => {
 		confirmButtonText: 'Aceptar',
 		cancelButtonText: 'Cancelar',
 		background: `#87adbd`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaTarjeta = (user) => {
@@ -294,7 +296,7 @@ export const alertaConfirmarCompra = (user, total) => {
 		showCancelButton: true,
 		confirmButtonText: 'Aceptar',
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 export const alertaDebeIniciarSesión = () => {
@@ -304,7 +306,7 @@ export const alertaDebeIniciarSesión = () => {
 		icon: 'info',
 		confirmButtonText: 'Aceptar',
 		background: `#3fc3ee`,
-		color: 'rgba(255,255,255,.9)',
+		color: 'rgba(0,0,0,.9)',
 	})
 }
 ////////		CARRITO     ////////////

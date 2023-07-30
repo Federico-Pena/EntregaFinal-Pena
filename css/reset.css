@@ -1,3 +1,12 @@
+:root {
+	--azul: #1a386a;
+	--azulObscuro: #0f213e;
+	--gris: #d6e2f5;
+	--blanco: #eaf0fa;
+	--rosa: #f5d6e2;
+	--verde: #e2f5d6;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -14,14 +23,96 @@ a {
 .navBar ul .hidden {
 	display: none;
 }
-:root {
-	--azul: #1a386a;
-	--azulObscuro: #0f213e;
-	--gris: #d6e2f5;
-	--blanco: #eaf0fa;
-	--rosa: #f5d6e2;
-	--verde: #e2f5d6;
+
+.header {
+	width: 100%;
+	height: 4rem;
+	position: fixed;
+	display: flex;
+	top: 0;
+	z-index: 2;
 }
+.header .navBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: var(--azulObscuro);
+}
+.header .navBar ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	height: 100%;
+	position: relative;
+	padding: 0 1rem;
+}
+
+.navBar ul li {
+	padding: 0.5rem 1rem;
+	background-color: transparent;
+	border: none;
+	border-radius: 0.5rem;
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	transition: all.3s linear;
+	letter-spacing: 1px;
+	word-wrap: break-word;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.nameUserNav .fa-solid {
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	margin: 0 1rem;
+	transition: all 0.5s ease;
+}
+.navBar ul li .eliminarCuenta {
+	position: relative;
+	color: #000000;
+	cursor: pointer;
+	border-radius: 0.3rem;
+	padding: 0.1rem 0.5rem;
+	transition: all 0.3s ease;
+	border: none;
+}
+.navBar ul li .eliminarCuenta:hover {
+	background-color: rgba(255, 0, 0, 0.603);
+	transform: scale(0.98);
+}
+
+.navBar ul #agregar a {
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	transition: all.3s linear;
+	letter-spacing: 1px;
+	word-wrap: break-word;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.navBar ul #agregar:hover a {
+	text-decoration: underline;
+	color: var(--rosa);
+}
+.navBar ul li:hover {
+	background-color: var(--azul);
+	outline: 1px solid #ffffff;
+}
+.navBar ul #btnCarrito .fa-solid {
+	padding: 0.5rem 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .custom-loader {
 	width: 50px;
 	height: 50px;

@@ -15,20 +15,60 @@ export const mostrarProductos = async () => {
 		BD.forEach((prod) => {
 			let cardProducto = document.createElement('div')
 			cardProducto.classList.add('cardProducto')
-			cardProducto.innerHTML = `
-									<img class="imgProd" id="${
-										prod.foto || '../assets/productos/productoSinImagen.png'
-									}" src="${
-				prod.foto || '../assets/productos/productoSinImagen.png'
-			}" alt="${prod.nombre}" title="${prod.nombre}">
-									<p class="nombreProd" id="${prod.nombre}">${prod.nombre}</p>
-									<small>${prod.detalles}</small>
-									<small>${prod.categoría}</small>
-									<strong class="precioProd" id="${prod.precio}">$ ${prod.precio}</strong>        
-									<button id=${
-										prod.ID
-									} title="Agregar al Carrito" class="btnAgregar"><i class="fa-solid fa-cart-shopping"></i></i>Agregar al Carrito</button>
-	`
+			/* Imagen */
+			let imagen = document.createElement('img')
+			imagen.classList.add('imgProd')
+			imagen.setAttribute(
+				'id',
+				`${prod.foto || '../assets/productos/productoSinImagen.png'}`
+			)
+			imagen.setAttribute(
+				'src',
+				`${prod.foto || '../assets/productos/productoSinImagen.png'}`
+			)
+			imagen.setAttribute('alt', `${prod.nombre}`)
+			imagen.setAttribute('title', `${prod.nombre}`)
+			/* Nombre */
+			let nombre = document.createElement('p')
+			nombre.classList.add('nombreProd')
+			nombre.setAttribute('id', prod.nombre)
+			let nombreText = document.createTextNode(prod.nombre)
+			nombre.appendChild(nombreText)
+			/* Detalles */
+			let smallDetalles = document.createElement('small')
+			let smallDetallesText = document.createTextNode(prod.detalles)
+			smallDetalles.appendChild(smallDetallesText)
+			/* Categoría */
+			let smallCategoría = document.createElement('small')
+			smallCategoría.classList.add('smallCategoría')
+
+			smallCategoría.setAttribute('id', prod.categoría)
+			let smallCategoríaText = document.createTextNode(prod.categoría)
+			smallCategoría.appendChild(smallCategoríaText)
+			/* Precio */
+			let precio = document.createElement('strong')
+			let precioText = document.createTextNode(`$ ${prod.precio}`)
+			precio.classList.add('precioProd')
+			precio.setAttribute('id', `${prod.precio}`)
+			precio.appendChild(precioText)
+			/* Botón */
+			let buttonAgregar = document.createElement('button')
+			buttonAgregar.classList.add('btnAgregar')
+			buttonAgregar.setAttribute('id', prod.ID)
+			buttonAgregar.setAttribute('title', `Agregar al Carrito`)
+			let buttonAgregarText = document.createTextNode('Agregar al Carrito')
+			buttonAgregar.appendChild(buttonAgregarText)
+			let icono = document.createElement('i')
+			icono.classList.add('fa-solid')
+			icono.classList.add('fa-cart-shopping')
+			buttonAgregar.appendChild(icono)
+			/* Card */
+			cardProducto.appendChild(imagen)
+			cardProducto.appendChild(nombre)
+			cardProducto.appendChild(smallDetalles)
+			cardProducto.appendChild(smallCategoría)
+			cardProducto.appendChild(precio)
+			cardProducto.appendChild(buttonAgregar)
 			divProductos.appendChild(cardProducto)
 		})
 	}
@@ -61,26 +101,53 @@ export function buscarProd(event) {
 	let inputValue = event.target.value.toLowerCase()
 	cardProducto.forEach((prod) => {
 		if (prod.textContent.toLowerCase().includes(inputValue)) {
-			prod.style.display = 'flex'
+			prod.classList.remove('hidden')
 		} else {
-			prod.style.display = 'none'
+			prod.classList.add('hidden')
+		}
+	})
+}
+const filtrarCategoría = (e) => {
+	let filtro = e.currentTarget.textContent
+	const divProductos = document.getElementById('divProductos')
+	divProductos.querySelectorAll('.smallCategoría').forEach((prod) => {
+		let card = prod.parentElement
+		if (!prod.textContent.includes(filtro)) {
+			card.classList.add('hidden')
+		} else {
+			card.classList.remove('hidden')
 		}
 	})
 }
 export const filtros = async () => {
-	const categorias = document.getElementById('Categorías')
+	const categorías = document.querySelector('.Categorías')
+	const DB = buscarLocalStorage('Productos')
 	const res = await fetch('./productos.json')
 	const { productos } = await res.json()
 	let cat = []
+	DB.forEach((a) => {
+		cat.push(a.categoría)
+	})
 	productos.forEach((a) => {
 		cat.push(a.categoría)
 	})
 	const filtradas = new Set(cat)
-	filtradas.forEach((categoria) => {
+	filtradas.forEach((categoría) => {
 		const botón = document.createElement('button')
-		botón.innerText = categoria
-		categorias.append(botón)
+		botón.classList.add('btnFiltroCategoría')
+		let buttonText = document.createTextNode(categoría)
+		botón.append(buttonText)
+		botón.addEventListener('click', filtrarCategoría)
+		categorías.append(botón)
 	})
+	const botónCerrar = document.createElement('button')
+	botónCerrar.classList.add('botónCerrarCategoría')
+	const botónIcono = document.createElement('i')
+	botónIcono.classList.add('fa-solid')
+	botónIcono.classList.add('fa-x')
+	botónCerrar.append(botónIcono)
+	botónCerrar.addEventListener('click', filtrarCategoría)
+	categorías.append(botónCerrar)
 }
 filtros()
 ///////////////		BÚSQUEDA	/////////////////

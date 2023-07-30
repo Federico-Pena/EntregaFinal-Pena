@@ -8,85 +8,66 @@
 }
 
 #bodyAgregarProductos {
-	background-color: #303030;
+	background-color: var(--rosa);
 	color: white;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	min-height: 100vh;
+	font-family: 'Rubik', sans-serif;
+	overflow-x: hidden;
+	position: relative;
+}
+#bodyAgregarProductos main {
+	width: 100%;
+	min-height: 100vh;
+	font-family: 'Rubik', sans-serif;
+}
+.linkIndex {
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	transition: all.3s linear;
+	letter-spacing: 1px;
+	text-decoration: none;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	min-height: 100vh;
-	height: auto;
-	font-family: 'Rubik', sans-serif;
-}
-#bodyAgregarProductos .container {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	flex: auto;
-}
-.container header {
-	width: 100%;
-	height: 3rem;
-	position: fixed;
-	display: flex;
-	top: 0;
-	z-index: 2;background-color: #ffffff;
-}
-.container header .container {
-	display: flex;
-	justify-content: space-around;
-	padding: 0.5rem;
-	background-color: #ffffff1e;
-	backdrop-filter: blur(10px);
-}
-header .container a {
-	padding: 0.5rem 0;
-	background-color: transparent;
-	border: none;
-	border-radius: 0.5rem;
-	font-weight: bold;
-	color: #000000;
-	transition: all.3s linear;
-	letter-spacing: 1px;
-	word-wrap: break-word;
-	text-decoration: none;
-	transition: color 0.3s ease;
-}
-header .container a:hover {
-	text-decoration: underline;
-	color: #7019d3a9;
 }
 /*Formulario AGREGAR PRODUCTO */
-.container .form {
+.form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-	width: 50%;
 	min-width: 300px;
 	max-width: 800px;
 	height: auto;
-	margin: 4rem auto;
+	margin: 5rem auto;
 	padding: 1rem;
 	border-radius: 0.5rem;
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.562);
-	background-color: rgba(255, 255, 255, 0.116);
+	background-color: #1a376abb;
 	backdrop-filter: blur(10px);
 }
-.container .form h1 {
+.form h1 {
+	width: 100%;
 	text-align: center;
 }
-.container .form .labelInput {
-	height: 100%;
-	width: 100%;
+.form .labelInput {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	gap: 0.5rem;
+	width: 90%;
 	position: relative;
 }
-.container .inputForm {
+.inputForm {
 	height: 2rem;
+	width: 100%;
 	border-radius: 0.5rem;
 	outline: none;
 	border: none;
@@ -94,30 +75,29 @@ header .container a:hover {
 	transition: all 0.2s linear;
 	font-weight: 550;
 }
-.container .form .inputForm:hover {
+.form .inputForm:hover {
 	box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.616);
 	transform: scale(1, 1.05);
 }
-.container .form .inputFile {
+.form .inputFile {
 	opacity: 0;
 	position: absolute;
-	height: 100%;
 	cursor: pointer;
-	width: 100%;
 }
-.container .form .preview {
+.form .preview {
 	display: flex;
-	width: 200px;
-	height: 200px;
-	border-radius: 0.2rem;
-}
-.container .form .preview img {
-	width: 100%;
+	min-width: 200px;
 	height: 100%;
+	border-radius: 0.5rem;
+}
+.form .preview #preview {
+	width: 100%;
+	height: auto;
+	max-height: 200px;
 	border-radius: 0.5rem;
 	aspect-ratio: 16/9;
 }
-.container .form #labelFIle::after {
+.form #labelFIle::after {
 	content: 'Cargar Archivo...';
 	padding: 0.5rem;
 	text-align: center;
@@ -125,7 +105,7 @@ header .container a:hover {
 	background-color: #ffffff;
 	color: #303030;
 }
-.container .form .btnForm {
+.form .btnForm {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(60, 247, 43, 0.404);
@@ -135,7 +115,7 @@ header .container a:hover {
 	font-weight: bold;
 	transition: all.3s linear;
 }
-.container .form .btnForm:hover {
+.form .btnForm:hover {
 	background-color: rgb(60, 247, 43);
 	transform: scale(0.98);
 }

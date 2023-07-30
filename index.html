@@ -30,65 +30,63 @@
 	</head>
 
 	<body id="bodyComprarProductos">
-		<div class="container">
-			<header class="header animate__animated animate__backInDown">
-				<nav class="navBar">
-					<ul>
-						<li title="Registrarse" class="btnRegistrarse">Registrarse</li>
-						<li title="Iniciar Sesión" id="btnLogin">Iniciar Sesión</li>
-						<li title="Cerrar Sesión" class="logout hidden animate__animated">
-							Cerrar Sesión
-						</li>
-						<li class="hidden nameUserNav animate__animated">
-							<i class="fa-solid fa-user fa-xl"></i>
-							<button
-								title="eliminar Cuenta"
-								class="hidden eliminarCuenta animate__animated">
-								Eliminar Cuenta
-							</button>
-						</li>
-						<li id="agregar" class="hidden animate__animated">
-							<a
-								title="Ir a Agregar Productos"
-								href="./pages/agregarProducto.html">
-								AGREGAR
-							</a>
-						</li>
-						<li id="btnCarrito" title="carrito de compras">
-							<p class="carritoLength animate__animated"></p>
-							<i class="fa-solid fa-shop fa-lg"></i>
-						</li>
-					</ul>
-				</nav>
-			</header>
-			<main>
-				<div class="carrito hidden animate__animated">
-					<button id="cerrarCarrito">
-						<i class="fa-solid fa-x fa-xl"></i>
-					</button>
-					<h2>CARRITO DE COMPRAS</h2>
-					<div class="divCarrito animate__animated">
-						<!-- Aquí van los Productos del Carrito -->
-					</div>
-					<strong class="total">$</strong>
-					<button class="comprar">Comprar</button>
-					<button class="vaciarCarrito">Vaciar carrito</button>
-				</div>
-				<div class="buscar animate__animated animate__backInDown">
-					<label for="buscar">Buscar</label>
-					<input
-						id="buscar"
-						type="text"
-						placeholder="Nombre-medidas-composición" />
-					<div id="Categorías"></div>
-				</div>
-				<div
-					class="productos animate__animated animate__backInDown"
-					id="divProductos">
-					<!-- Aquí van los Productos de la DB -->
-				</div>
-			</main>
+		<header class="header animate__animated animate__backInDown">
+			<nav class="navBar">
+				<ul>
+					<li title="Registrarse" class="btnRegistrarse">Registrarse</li>
+					<li title="Iniciar Sesión" id="btnLogin">Iniciar Sesión</li>
+					<li title="Cerrar Sesión" class="logout hidden animate__animated">
+						Cerrar Sesión
+					</li>
+					<li class="hidden nameUserNav animate__animated">
+						<i class="fa-solid fa-user fa-xl"></i>
+						<button
+							title="eliminar Cuenta"
+							class="hidden eliminarCuenta animate__animated">
+							Eliminar Cuenta
+						</button>
+					</li>
+					<li id="agregar" class="hidden animate__animated">
+						<a
+							title="Ir a Agregar Productos"
+							href="./pages/agregarProducto.html">
+							AGREGAR
+						</a>
+					</li>
+					<li id="btnCarrito" title="carrito de compras">
+						<p class="carritoLength animate__animated"></p>
+						<i class="fa-solid fa-shop fa-lg"></i>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="carrito hidden animate__animated">
+			<button id="cerrarCarrito">
+				<i class="fa-solid fa-x fa-xl"></i>
+			</button>
+			<h2>CARRITO DE COMPRAS</h2>
+			<div class="divCarrito animate__animated">
+				<!-- Aquí van los Productos del Carrito -->
+			</div>
+			<strong class="total">$</strong>
+			<button class="comprar">Comprar</button>
+			<button class="vaciarCarrito">Vaciar carrito</button>
 		</div>
+		<main>
+			<div class="buscar animate__animated animate__backInDown">
+				<label for="buscar">Buscar</label>
+				<input
+					id="buscar"
+					type="text"
+					placeholder="Nombre-medidas-composición" />
+				<div class="Categorías"></div>
+			</div>
+			<div
+				class="productos animate__animated animate__backInDown"
+				id="divProductos">
+				<!-- Aquí van los Productos de la DB -->
+			</div>
+		</main>
 		<!-- bcryptJS -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 		<script src="./js/index.js" type="module"></script>

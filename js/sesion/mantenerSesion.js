@@ -10,7 +10,7 @@ export function mantenerSesion() {
 		document.querySelector('.logout ').classList.remove('hidden')
 		document.querySelector('#btnLogin').classList.add('hidden')
 		document.querySelector('.btnRegistrarse').classList.add('hidden')
-		if (userActive === 'admin@gmail.com') {
+		if (userActive === 'admin') {
 			document.getElementById('agregar').classList.remove('hidden')
 		}
 	} else return

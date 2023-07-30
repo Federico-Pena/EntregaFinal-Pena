@@ -29,8 +29,8 @@ export const login = async () => {
 				result.value.user === 'admin@gmail.com' &&
 				result.value.password === 'admin'
 			) {
-				alertaLoginAdmin(result.value.user)
-				guardarLocalStorage('userActive', result.value.user)
+				alertaLoginAdmin('admin')
+				guardarLocalStorage('userActive', 'admin')
 				animLogin()
 				const agregar = document.getElementById('agregar')
 				agregar.classList.remove('hidden')
