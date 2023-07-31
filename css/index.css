@@ -16,7 +16,9 @@
 	overflow-x: hidden;
 	position: relative;
 }
-
+#bodyComprarProductos main {
+	min-height: 100vh;
+}
 ::-webkit-scrollbar {
 	display: none;
 }

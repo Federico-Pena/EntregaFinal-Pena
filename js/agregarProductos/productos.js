@@ -27,7 +27,7 @@ export const guardarProducto = (producto) => {
  * @Info Pagina Agregar Productos
  */
 const eliminar = (e) => {
-	const idCard = e.currentTarget.id
+	const idCard = e.target.id
 	const DbProductos = buscarLocalStorage('Productos')
 	DbProductos.forEach(async (prod, index) => {
 		if (parseInt(prod.ID) === parseInt(idCard)) {
@@ -38,9 +38,10 @@ const eliminar = (e) => {
 				mostrarProd()
 			}
 		}
-		const DbCarrito = buscarLocalStorage('Carrito')
+		const DbCarrito = buscarLocalStorage('carrito')
+		console.log(DbCarrito)
 		DbCarrito.forEach((prod, index) => {
-			if (prod.ID == idCard) {
+			if (parseInt(prod.id) === parseInt(idCard)) {
 				DbCarrito.splice(index, 1)
 				guardarLocalStorage('carrito', DbCarrito)
 				mostrarProd()

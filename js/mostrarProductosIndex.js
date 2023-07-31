@@ -1,30 +1,16 @@
-import { buscarLocalStorage } from '../localStorage/helpers.js'
-import { observerFunction } from '../observer.js'
+import { buscarLocalStorage } from './localStorage/helpers.js'
+import { observerFunction } from './observer.js'
 
-/**
- * @Info Método para mostrar el producto agregado bajo el formulario
- * @Info Pagina Agregar Productos
- */
-export const mostrarProd = () => {
-	const DbProductos = buscarLocalStorage('Productos')
-	if (!DbProductos.length) {
-		const productos = document.querySelector('.productos')
-		productos.innerHTML = ''
-		const cardProducto = document.createElement('div')
-		cardProducto.classList.add('cardProducto')
-		const ListaVacia = document.createElement('strong')
-		ListaVacia.classList.add('ListaVacia')
-		const ListaVaciaText = document.createTextNode(
-			'Agrega Productos a la lista'
-		)
-		ListaVacia.appendChild(ListaVaciaText)
-		cardProducto.append(ListaVacia)
-		productos.append(cardProducto)
-	} else {
-		const stock = document.getElementById('stock')
-		stock.innerHTML = ''
-		DbProductos.forEach((prod) => {
-			const cardProducto = document.createElement('div')
+export const mostrarProductos = async () => {
+	const divProductos = document.getElementById('divProductos')
+
+	const data = await fetch('./productos.json')
+	const { productos } = await data.json()
+	const BD = buscarLocalStorage('Productos')
+	BD.push(...productos)
+	if (BD.length) {
+		BD.forEach((prod) => {
+			let cardProducto = document.createElement('div')
 			cardProducto.classList.add('cardProducto')
 			/* Imagen */
 			let imagen = document.createElement('img')
@@ -38,6 +24,8 @@ export const mostrarProd = () => {
 			imagen.setAttribute('title', `${prod.nombre}`)
 			/* Nombre */
 			let nombre = document.createElement('p')
+			nombre.classList.add('nombreProd')
+			nombre.setAttribute('id', prod.nombre)
 			let nombreText = document.createTextNode(prod.nombre)
 			nombre.appendChild(nombreText)
 			/* Detalles */
@@ -46,23 +34,27 @@ export const mostrarProd = () => {
 			smallDetalles.appendChild(smallDetallesText)
 			/* Categoría */
 			let smallCategoría = document.createElement('small')
+			smallCategoría.classList.add('smallCategoría')
+
+			smallCategoría.setAttribute('id', prod.categoría)
 			let smallCategoríaText = document.createTextNode(prod.categoría)
 			smallCategoría.appendChild(smallCategoríaText)
 			/* Precio */
 			let precio = document.createElement('strong')
 			let precioText = document.createTextNode(`$ ${prod.precio}`)
 			precio.classList.add('precioProd')
-			precio.setAttribute('id', prod.precio)
+			precio.setAttribute('id', `${prod.precio}`)
 			precio.appendChild(precioText)
 			/* Botón */
 			let buttonAgregar = document.createElement('button')
-			buttonAgregar.classList.add('btnBorrar')
-			buttonAgregar.setAttribute('id', `${prod.ID}`)
-			buttonAgregar.setAttribute('title', `Borrar Producto`)
+			buttonAgregar.classList.add('btnAgregar')
+			buttonAgregar.setAttribute('id', prod.ID)
+			buttonAgregar.setAttribute('title', `Agregar al Carrito`)
+			let buttonAgregarText = document.createTextNode('Agregar al Carrito')
+			buttonAgregar.appendChild(buttonAgregarText)
 			let icono = document.createElement('i')
 			icono.classList.add('fa-solid')
-			icono.classList.add('fa-circle-xmark')
-			icono.setAttribute('id', `${prod.ID}`)
+			icono.classList.add('fa-cart-shopping')
 			buttonAgregar.appendChild(icono)
 			/* Card */
 			cardProducto.appendChild(imagen)
@@ -71,7 +63,7 @@ export const mostrarProd = () => {
 			cardProducto.appendChild(smallCategoría)
 			cardProducto.appendChild(precio)
 			cardProducto.appendChild(buttonAgregar)
-			stock.append(cardProducto)
+			divProductos.appendChild(cardProducto)
 		})
 	}
 	observerFunction()
