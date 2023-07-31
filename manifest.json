@@ -4,7 +4,7 @@
 	"display": "standalone",
 	"start_url": "/",
 	"short_name": "La Tienda",
-	"theme_color": "#f5d6e2",
+	"theme_color": "#1a386a",
 	"description": "Tienda Electrónica",
 	"orientation": "any",
 	"background_color": "#f5d6e2",

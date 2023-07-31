@@ -33,6 +33,7 @@ function showInstallButton(deferredPrompt) {
 		deferredPrompt.userChoice.then((choiceResult) => {
 			if (choiceResult.outcome === 'accepted') {
 				console.log('El usuario aceptó la instalación')
+				installButton.style.display = 'none'
 			} else {
 				console.log('El usuario rechazó la instalación')
 			}
