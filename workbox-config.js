@@ -1,14 +1,14 @@
 module.exports = {
 	globDirectory: './',
 	globPatterns: [
-		'**/*.{html,css,js,png,webp,ico}', // Aquí los tipos de archivos que desees precachear
+		'**/*.{html,css,js,png,webp,ico}', // Archivos para precachear
 	],
 	swDest: 'sw.js',
 	clientsClaim: true,
 	skipWaiting: true,
 	runtimeCaching: [
 		{
-			urlPattern: /^https:\/\/entrega-final-pena\.vercel.app/, // Dominio
+			urlPattern: /^https:\/\/la-tienda\.vercel.app/, // Dominio
 			handler: 'NetworkFirst',
 			options: {
 				cacheName: 'la-tienda-cache-v1', // Nombre para la caché
