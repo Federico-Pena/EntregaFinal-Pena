@@ -2,6 +2,7 @@
 	"name": "La Tienda",
 	"display": "standalone",
 	"start_url": "/",
+	"scope": "/",
 	"short_name": "La Tienda",
 	"theme_color": "#0f213e",
 	"description": "Tienda Electrónica",
