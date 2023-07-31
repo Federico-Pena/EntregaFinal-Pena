@@ -3,7 +3,7 @@
 	"name": "La Tienda",
 	"display": "standalone",
 	"start_url": "/",
-	"short_name": "starter",
+	"short_name": "La Tienda",
 	"theme_color": "#f5d6e2",
 	"description": "Tienda Electrónica",
 	"orientation": "any",
