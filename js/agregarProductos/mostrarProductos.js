@@ -33,7 +33,10 @@ export const mostrarProd = () => {
 				'id',
 				`${prod.foto || '../assets/productos/productoSinImagen.png'}`
 			)
-			imagen.setAttribute('src', `https:placehold.co/200/ffffff1e/000?text=...`)
+			imagen.setAttribute(
+				'src',
+				`https://placehold.co/200/ffffff1e/000?text=...`
+			)
 			imagen.setAttribute('alt', `${prod.nombre}`)
 			imagen.setAttribute('title', `${prod.nombre}`)
 			/* Nombre */
