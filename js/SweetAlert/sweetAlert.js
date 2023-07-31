@@ -59,8 +59,8 @@ export const alertaRegistro = () => {
 		title: 'Registrarse',
 		html: `	
 		<form>
-		<input type="email" autocomplete="off" required id="usuario" class="swal2-input" placeholder="Email">
-  	<input type="password" autocomplete="off" required id="password" class="swal2-input" placeholder="Contraseña">
+		<input type="text"  required id="usuario" class="swal2-input" placeholder="user">
+  	<input type="password"  required id="password" class="swal2-input" placeholder="Contraseña">
 	</form>`,
 		confirmButtonText: 'Registrarse',
 		focusConfirm: true,
@@ -81,7 +81,7 @@ export const alertaLogin = () => {
 	return Swal.fire({
 		title: 'Iniciar Sesión',
 		html: `<form> 
-		<input type="email" autocomplete="off" id="usuario" class="swal2-input" placeholder="Email">
+		<input type="text" autocomplete="off" id="usuario" class="swal2-input" placeholder="user">
     <input type="password" autocomplete="off" required id="password" class="swal2-input" placeholder="Contraseña"> 
 		</form>`,
 		confirmButtonText: 'Iniciar Sesión',
