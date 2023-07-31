@@ -5,7 +5,6 @@ import { buscarLocalStorage } from '../localStorage/helpers.js'
  * @Info Pagina Agregar Productos
  */
 export const mostrarProd = () => {
-	console.log('jdnd')
 	const DbProductos = buscarLocalStorage('Productos')
 	if (!DbProductos.length) {
 		const productos = document.querySelector('.productos')
@@ -74,7 +73,6 @@ export const mostrarProd = () => {
 			cardProducto.appendChild(smallCategoría)
 			cardProducto.appendChild(precio)
 			cardProducto.appendChild(buttonAgregar)
-
 			stock.append(cardProducto)
 		})
 	}

@@ -6,11 +6,13 @@
 	--rosa: #f5d6e2;
 	--verde: #e2f5d6;
 }
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+::-webkit-scrollbar {
+	display: none;
 }
 
 ul {
@@ -20,6 +22,25 @@ button,
 a {
 	cursor: pointer;
 }
+#install-button {
+	position: absolute;
+	top: -1rem;
+	z-index: 2;
+	left: 0.5rem;
+	cursor: pointer;
+	padding: 0.5rem;
+	border: 1px solid white;
+	border-radius: 0.3rem;
+	background-color: var(--verde);
+	font-weight: bold;
+	transition: all 0.3s ease;
+}
+#install-button:hover {
+	background-color: #c1e4ac;
+	font-weight: bold;
+	transition: all 0.3s ease;
+}
+
 .navBar ul .hidden {
 	display: none;
 }
@@ -30,7 +51,7 @@ a {
 	position: fixed;
 	display: flex;
 	top: 0;
-	z-index: 2;
+	z-index: 3;
 }
 .header .navBar {
 	display: flex;

@@ -79,7 +79,7 @@ strong {
 	transition: all 0.3s ease;
 	position: relative;
 }
-.cardProducto:hover .fa-solid {
+.cardProducto:hover .fa-cart-shopping {
 	transition: all 2s ease;
 	position: absolute;
 	left: 90%;
