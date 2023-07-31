@@ -4,6 +4,7 @@ import { buscarLocalStorage } from './localStorage/helpers.js'
 import './sesion/sesion.js'
 import './carrito/carrito.js'
 import { agregarAlCarrito } from './carrito/agregarAlCarrito.js'
+const divProductos = document.getElementById('divProductos')
 
 export const mostrarProductos = async () => {
 	const data = await fetch('./productos.json')
@@ -11,7 +12,6 @@ export const mostrarProductos = async () => {
 	const BD = buscarLocalStorage('Productos')
 	BD.push(...productos)
 	if (BD.length) {
-		const divProductos = document.getElementById('divProductos')
 		BD.forEach((prod) => {
 			let cardProducto = document.createElement('div')
 			cardProducto.classList.add('cardProducto')
@@ -72,7 +72,6 @@ export const mostrarProductos = async () => {
 			divProductos.appendChild(cardProducto)
 		})
 	}
-	btnsAgregar()
 }
 //	Listener para Mostrar Productos y sesión
 window.addEventListener('DOMContentLoaded', () => {
@@ -80,16 +79,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	mantenerSesion()
 	mostrarProductos()
 })
-const btnsAgregar = () => {
-	// Listener para agregar productos a la carrito
-	const cardProducto = document.querySelectorAll('.cardProducto')
-	if (cardProducto) {
-		cardProducto.forEach((card) => {
-			const btn = card.querySelector('.btnAgregar')
-			btn.addEventListener('click', agregarAlCarrito)
-		})
+divProductos.addEventListener('click', (e) => {
+	if (e.target.classList.contains('btnAgregar')) {
+		agregarAlCarrito(e.target)
 	}
-}
+})
+
 ///////////////		BÚSQUEDA	/////////////////
 // Listener del input buscar
 const inputBuscar = document.getElementById('buscar')
@@ -135,7 +130,6 @@ export const filtros = async () => {
 	filtradas.forEach((categoría) => {
 		const botón = document.createElement('button')
 		botón.setAttribute('title', categoría)
-
 		botón.classList.add('btnFiltroCategoría')
 		botón.setAttribute('title', categoría)
 		let buttonText = document.createTextNode(categoría)
@@ -146,7 +140,6 @@ export const filtros = async () => {
 	const botónCerrar = document.createElement('button')
 	botónCerrar.classList.add('botónCerrarCategoría')
 	botónCerrar.setAttribute('title', 'Borrar Filtros')
-
 	const botónIcono = document.createElement('i')
 	botónIcono.classList.add('fa-solid')
 	botónIcono.classList.add('fa-x')

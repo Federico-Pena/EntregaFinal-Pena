@@ -6,12 +6,17 @@ import { buscarLocalStorage } from '../localStorage/helpers.js'
 export function mantenerSesion() {
 	const userActive = buscarLocalStorage('userActive')
 	if (userActive.length) {
-		document.querySelector('.nameUserNav').classList.remove('hidden')
-		document.querySelector('.logout ').classList.remove('hidden')
-		document.querySelector('#btnLogin').classList.add('hidden')
-		document.querySelector('.btnRegistrarse').classList.add('hidden')
+		let user =document.querySelector('.nameUserNav')
+	let btnCerrarSesion=	document.querySelector('.logout ')
+		let btnIniciarSecion= document.querySelector('#btnLogin')
+		let btnIniciarRegistrarse=document.querySelector('.btnRegistrarse')
+		user.classList.remove('hidden')
+		btnCerrarSesion.classList.remove('hidden')
+		btnIniciarSecion.classList.add('hidden')
+		btnIniciarRegistrarse.classList.add('hidden')
 		if (userActive === 'admin') {
-			document.getElementById('agregar').classList.remove('hidden')
+		   let linkAgregar= document.getElementById('agregar')
+			linkAgregar.classList.remove('hidden')
 		}
 	} else return
 }

@@ -3,14 +3,20 @@ import {
 	alertaRegistro,
 	alertaUserEnUso,
 } from '../SweetAlert/sweetAlert.js'
-import { buscarUsuarioRegistro } from '../helpers/buscarUsuarioRegistro.js'
-import { guardarUsuario } from '../helpers/guardarUsuario.js'
+import { buscarUsuarioRegistro } from './buscarUsuarioRegistro.js'
+import { guardarUsuario } from './guardarUsuario.js'
 
 export const registrarse = async () => {
 	const btnRegistrarse = document.querySelector('.btnRegistrarse')
-	btnRegistrarse.innerHTML = `<div class="custom-loader"></div>`
+	btnRegistrarse.innerHTML = ''
+	let loader = document.createElement('div')
+	loader.classList.add('custom-loader')
+	btnRegistrarse.append(loader)
 	const confirm = await alertaRegistro()
-	btnRegistrarse.innerHTML = 'Registrarse'
+	let textRegistrarse = document.createTextNode('Registrarse')
+	btnRegistrarse.innerHTML = ''
+
+	btnRegistrarse.append(textRegistrarse)
 	if (confirm.value) {
 		const userName = confirm.value.user
 		const userPass = confirm.value.password

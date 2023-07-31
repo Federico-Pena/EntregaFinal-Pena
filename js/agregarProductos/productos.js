@@ -1,6 +1,9 @@
 import { alertaEliminarProducto } from '../SweetAlert/sweetAlert.js'
-import { mostrarProd } from '../agregarProducto.js'
-import { buscarLocalStorage, guardarLocalStorage } from './helpers.js'
+import { mostrarProd } from './mostrarProductos.js'
+import {
+	buscarLocalStorage,
+	guardarLocalStorage,
+} from '../localStorage/helpers.js'
 
 /**
  *
@@ -45,10 +48,12 @@ const eliminar = (e) => {
 		})
 	})
 }
-export const borrarProd = () => {
-	const stock = document.getElementById('stock')
-	const btEliminar = stock.querySelectorAll('.btnBorrar')
-	btEliminar.forEach((btn) => {
-		btn.addEventListener('click', eliminar)
-	})
+export const borrarProd = (e) => {
+	if (
+		e.target.classList.contains('btnBorrar') ||
+		e.target.classList.contains('fa-circle-xmark')
+	) {
+		console.log(e.target)
+		e.target.addEventListener('click', eliminar)
+	}
 }

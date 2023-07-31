@@ -9,8 +9,8 @@ import {
 import { carritoLength } from './carrito.js'
 
 const crearProdParaCarrito = (event) => {
-	const id = event.currentTarget.id
-	const card = event.currentTarget.parentElement
+	const id = event.id
+	const card = event.parentElement
 	const foto = card.querySelector('.imgProd').id
 	const nombre = card.querySelector('.nombreProd').id
 	const precio = card.querySelector('.precioProd').id
@@ -30,7 +30,7 @@ const crearProdParaCarrito = (event) => {
 }
 
 export const agregarAlCarrito = (event) => {
-	const id = event.currentTarget.id
+	const id = event.id
 	const db = buscarLocalStorage('carrito')
 	const producto = crearProdParaCarrito(event)
 	if (db.length) {

@@ -5,7 +5,7 @@ import {
 	alertaLoginAdmin,
 } from '../SweetAlert/sweetAlert.js'
 import { animLogin } from '../animations/sesion/login.js'
-import { buscarUsuarioLogin } from '../helpers/buscarUsuarioLogin.js'
+import { buscarUsuarioLogin } from './buscarUsuarioLogin.js'
 import { guardarLocalStorage } from '../localStorage/helpers.js'
 
 export const login = async () => {

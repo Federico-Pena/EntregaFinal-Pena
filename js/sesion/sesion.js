@@ -17,6 +17,6 @@ btnlogout.addEventListener('click', cerrarSesion)
 const btnEliminarCuenta = document.querySelector('.eliminarCuenta')
 btnEliminarCuenta.addEventListener('click', eliminarCuenta)
 // Listener para aparecer o desaparecer el boton de eliminar cuenta.
-// Apretando en el nombre de usuario
+// click en el icono de usuario
 const userName = document.querySelector('.nameUserNav')
 userName.addEventListener('click', animBtnEliminarCuenta)

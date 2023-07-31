@@ -4,19 +4,18 @@ import {
 } from '../localStorage/helpers.js'
 import { calcularTotal } from './calcularTotal.js'
 
-export function calcularCantidad() {
-	const prodsCarrito = document.querySelectorAll('.prodCarrito')
-	prodsCarrito.forEach((prod) => {
-		const restar = prod.querySelector('.restar')
-		const sumar = prod.querySelector('.sumar')
-		restar.addEventListener('click', () => restarCantidad(prod))
-		sumar.addEventListener('click', () => sumarCantidad(prod))
-	})
+export function calcularCantidad(e) {
+	if (e.target.classList.contains('restar')) {
+		restarCantidad(e.target.parentElement)
+	}
+	if (e.target.classList.contains('sumar')) {
+		sumarCantidad(e.target.parentElement)
+	}
 }
 
-const restarCantidad = (prod) => {
-	let cantidad = prod.querySelector('.cantidad')
-	const id = prod.querySelector('.btnBorrarDelCarrito').id
+const restarCantidad = (padre) => {
+	let cantidad = padre.querySelector('.cantidad')
+	const id = padre.querySelector('.btnBorrarDelCarrito').id
 	const carritoDB = buscarLocalStorage('carrito')
 	if (parseInt(cantidad.textContent) < 2) {
 		const producto = carritoDB.find(
@@ -45,10 +44,10 @@ const restarCantidad = (prod) => {
 	}
 }
 
-const sumarCantidad = (prod) => {
+const sumarCantidad = (padre) => {
 	const carritoDB = buscarLocalStorage('carrito')
-	let cantidad = prod.querySelector('.cantidad')
-	const id = prod.querySelector('.btnBorrarDelCarrito').id
+	let cantidad = padre.querySelector('.cantidad')
+	const id = padre.querySelector('.btnBorrarDelCarrito').id
 	const producto = carritoDB.find((prod) => parseInt(prod.id) === parseInt(id))
 	cantidad.textContent++
 	producto.cantidad++

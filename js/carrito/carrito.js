@@ -1,5 +1,4 @@
 ///////////carrito
-import { eliminarDelCarrito } from './eliminarDelCarrito.js'
 import { animAbrirCarrito } from '../animations/carrito/abrirCarrito.js'
 import { animCerrarCarrito } from '../animations/carrito/cerrarCarrito.js'
 import { buscarLocalStorage } from '../localStorage/helpers.js'
@@ -7,6 +6,7 @@ import { vaciarCarrito } from './vaciarCarrito.js'
 import { comprar } from './comprar.js'
 import { calcularTotal } from './calcularTotal.js'
 import { calcularCantidad } from './calcularCantidad.js'
+import { eliminarDelCarrito } from './eliminarDelCarrito.js'
 
 // Listener para cerrar y animar el cierre del carrito
 const cerrarCarrito = document.getElementById('cerrarCarrito')
@@ -17,23 +17,19 @@ const abrirCarrito = document.getElementById('btnCarrito')
 abrirCarrito.addEventListener('click', () => {
 	animAbrirCarrito()
 	mostrarProdCarrito()
-	calcularCantidad()
 	calcularTotal()
-	btnsBorrarDelCarrito()
 })
 
 // Listener Para comprar
 const btnComprar = document.querySelector('.comprar')
 btnComprar.addEventListener('click', comprar)
 
-export function btnsBorrarDelCarrito() {
-	// Listener para eliminar un producto del carrito
-	const divCarrito = document.querySelector('.divCarrito')
-	const botones = divCarrito.querySelectorAll('.btnBorrarDelCarrito')
-	botones.forEach((btn) => {
-		btn.addEventListener('click', eliminarDelCarrito)
-	})
-}
+// Listener para eliminar un producto del carrito
+const divCarrito = document.querySelector('.divCarrito')
+divCarrito.addEventListener('click', (e) => {
+	calcularCantidad(e)
+	eliminarDelCarrito(e)
+})
 
 // Listener para vaciar el carrito completo
 const btnVaciarCarrito = document.querySelector('.vaciarCarrito')
@@ -89,13 +85,14 @@ export function mostrarProdCarrito() {
 			spanSumar.classList.add('sumar')
 			let spanSumarText = document.createTextNode('+')
 			spanSumar.appendChild(spanSumarText)
-
 			/* Botón */
 			let buttonBorrar = document.createElement('button')
 			buttonBorrar.classList.add('btnBorrarDelCarrito')
 			buttonBorrar.setAttribute('id', prod.id)
 			buttonBorrar.setAttribute('title', `Borrar del carrito ${prod.nombre}`)
 			let icono = document.createElement('i')
+			icono.setAttribute('id', prod.id)
+
 			icono.classList.add('fa-solid')
 			icono.classList.add('fa-circle-xmark')
 			buttonBorrar.appendChild(icono)

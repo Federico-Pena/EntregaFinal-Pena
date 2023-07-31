@@ -10,10 +10,14 @@ export async function vaciarCarrito(e) {
 	const btnVAciar = e.currentTarget
 	const db = buscarLocalStorage('carrito')
 	if (db.length) {
-		btnVAciar.innerHTML = `<div class="custom-loader"></div>`
+	   btnVAciar.innerHTML=""
+	   let loader = document.createElement("div")
+	loader.classList.add("custom-loader")
+	btnVAciar.append(loader)
 		const res = await alertaVaciarCarrito()
-		btnVAciar.innerHTML = `Vaciar Carrito`
-
+		let textBtn = document.createTextNode("Vaciar Carrito")
+		btnVAciar.innerHTML=""
+btnVAciar.append(textBtn)
 		if (res.isConfirmed) {
 			const divCarrito = document.querySelector('.divCarrito')
 			divCarrito.classList.add('animate__flipOutY')

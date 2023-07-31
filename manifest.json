@@ -1,0 +1,40 @@
+{
+	"scope": "/",
+	"name": "La Tienda",
+	"display": "standalone",
+	"start_url": "/",
+	"short_name": "starter",
+	"theme_color": "#f5d6e2",
+	"description": "Tienda Electrónica",
+	"orientation": "any",
+	"background_color": "#f5d6e2",
+	"icons": [
+		{
+			"src": "assets/iconos/favicon.ico",
+			"type": "image/x-icon",
+			"sizes": "16x16 32x32"
+		},
+		{
+			"src": "assets/iconos/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "assets/iconos/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "assets/iconos/icon-192-maskable.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "maskable"
+		},
+		{
+			"src": "assets/iconos/icon-512-maskable.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	]
+}

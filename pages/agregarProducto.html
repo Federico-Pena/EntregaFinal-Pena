@@ -2,58 +2,60 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/alfombra-roja-favicon.png" type="image/x-icon">
-    <!-- ////////FUENTE//////// -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- ////////ANIMACIONES////////  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- ////////font-awesome////////  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- ////////SWEET ALERT////////  -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- ////////ESTILOS PERSONALIZADOS////////  -->
-<link rel="stylesheet" href="../css/agregarProducto.css">
-<link rel="stylesheet" href="../css/productos.css">
-<link rel="stylesheet" href="../css/reset.css">
-    <title>La Casa de la Alfombra</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <meta name="description" content="Tienda Electrónica" />
+  <!-- ////////FUENTE//////// -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- ////////ANIMACIONES////////  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- ////////font-awesome////////  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- ////////SWEET ALERT////////  -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- ////////ESTILOS PERSONALIZADOS////////  -->
+  <link rel="stylesheet" href="../css/agregarProducto.css">
+  <link rel="stylesheet" href="../css/productos.css">
+  <link rel="stylesheet" href="../css/general.css">
+  <title>La Tienda</title>
 </head>
 
 <body id="bodyAgregarProductos">
-        <header class="header animate__animated animate__backInDown">
-            <nav class="navBar">
-                <ul>
-                    <li>
-                <a class="linkIndex" href="../index.html"> Productos</a>
-            </li>
-        </ul>
+  <header class="header animate__animated animate__backInDown">
+    <nav class="navBar">
+      <ul>
+        <li>
+          <a class="linkIndex" href="../index.html"> Productos</a>
+        </li>
+      </ul>
     </nav>
-        </header>
-        <main>
-            <form id="formulario" class="form animate__animated animate__backInDown">
-                <h1>Agregar Producto</h1>
-                <label class="labelInput" for="nombre">Nombre <input id="nombre"  required class="inputForm" type="text"
-                        placeholder="Alfombra Fantasia"></label>
-                <label class="labelInput" for="precio">Precio <input step="0.01" id="precio" placeholder="Precio" required class="inputForm"
-                        type="number"></label>
-                <label class="labelInput" for="Detalles">Detalles<input id="Detalles" required class="inputForm"
-                        type="text" placeholder="Detalles"></label>
-                <label class="labelInput" for="Categoría">Categoría <input id="Categoría" required
-                        class="inputForm" type="text" placeholder=" Categoría"></label>
-                <label class="labelInput" for="foto" id="labelFIle">Agregar foto <input id="foto" placeholder="Foto" class="inputFile"
-                        type="file" accept="image/*"></label>
-                <div class="preview">
-                    <img id="preview" src='https://placehold.co/200/ffffff1e/000?text=Vista+Previa'></img>
-                </div>
-                <button class="btnForm" type="submit">Agregar</button>
-            </form>
-            <div class="productos animate__animated animate__backInDown" id="stock"><!-- Aquí van los productos --></div>
-        </main>
-    <script type="module" src="../js/agregarProducto.js"></script>
+  </header>
+  <main>
+    <form id="formulario" class="form animate__animated animate__backInDown">
+      <h1>Agregar Producto</h1>
+      <label class="labelInput" for="nombre">Nombre <input id="nombre" required class="inputForm" type="text"
+          placeholder="Alfombra Fantasia"></label>
+      <label class="labelInput" for="precio">Precio <input step="0.01" id="precio" placeholder="Precio" required
+          class="inputForm" type="number"></label>
+      <label class="labelInput" for="Detalles">Detalles<input id="Detalles" required class="inputForm" type="text"
+          placeholder="Detalles"></label>
+      <label class="labelInput" for="Categoría">Categoría <input id="Categoría" required class="inputForm" type="text"
+          placeholder=" Categoría"></label>
+      <label class="labelInput" for="foto" id="labelFIle">Agregar foto <input id="foto" placeholder="Foto"
+          class="inputFile" type="file" accept="image/*"></label>
+      <div class="preview">
+        <img id="preview" src='https://placehold.co/200/ffffff1e/000?text=Vista+Previa'></img>
+      </div>
+      <button class="btnForm" type="submit">Agregar</button>
+    </form>
+    <div class="productos animate__animated animate__backInDown" id="stock"><!-- Aquí van los productos --></div>
+  </main>
+  <script type="module" src="../js/agregarProducto.js"></script>
 </body>
 
 </html>
