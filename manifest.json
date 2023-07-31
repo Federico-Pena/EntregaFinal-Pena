@@ -7,7 +7,7 @@
 	"theme_color": "#0f213e",
 	"description": "Tienda Electrónica",
 	"orientation": "any",
-	"background_color": "#0f213e",
+	"background_color": "#f5d6e2",
 	"icons": [
 		{
 			"src": "assets/iconos/favicon.ico",
